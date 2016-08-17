@@ -145,7 +145,7 @@ public class Scan {
 	 * student
 	 */
 	//判断学生扫描的合法性
-	public boolean isExt(String studentId,String subjectId,String teacherId){
+	public boolean isExt(String studentId,String teacherId){
 		boolean flag = false;
 		//获取身份
 		String indentity = user.judgeIndentityByUserId(studentId);
@@ -155,6 +155,24 @@ public class Scan {
 		
 		//判断合法性
 		if (indentity == "student" && tempsign != null) {
+			flag = true;
+		}
+		
+		return flag;
+	}
+	
+	/*
+	 * 判断学生是否重复扫描
+	 */
+	public boolean isRePlay(String studentId,String teacherId){
+		boolean flag = false;
+		
+		//获取锁定状态
+		Tempsign tempsign = Tempsign.dao.findById(studentId,teacherId);
+		String lockState = tempsign.getScanState();
+		
+		//判断锁定状态
+		if (lockState == "true") {
 			flag = true;
 		}
 		
