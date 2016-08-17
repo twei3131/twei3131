@@ -32,7 +32,8 @@ public class _MappingKit {
 		// Composite Primary Key order: subjectId,timesId
 		arp.addMapping("subjecttotimes", "subjectId,timesId", Subjecttotimes.class);
 		arp.addMapping("teacher", "teacherId", Teacher.class);
-		arp.addMapping("tempsign", "studentId", Tempsign.class);
+		// Composite Primary Key order: studentId,teacherId
+		arp.addMapping("tempsign", "studentId,teacherId", Tempsign.class);
 		arp.addMapping("times", "timesId", Times.class);
 	}
 }

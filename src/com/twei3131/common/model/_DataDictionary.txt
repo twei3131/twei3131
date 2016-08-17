@@ -128,7 +128,7 @@ Table: tempsign
  Field     | Type         | Null | Key | Default | Remarks 
 -----------+--------------+------+-----+---------+---------
  studentId | VARCHAR(25)  | NO   | PRI |         |         
- teacherId | VARCHAR(25)  | NO   |     |         |         
+ teacherId | VARCHAR(25)  | NO   | PRI |         |         
  subjectId | VARCHAR(25)  | NO   |     |         |         
  state     | ENUM(4)      | NO   |     | Î´µ½      |         
  scanState | ENUM(5)      | NO   |     | false   |         

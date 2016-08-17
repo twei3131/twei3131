@@ -146,13 +146,18 @@ public class Scan {
 	 */
 	//判断学生扫描的合法性
 	public boolean isExt(String studentId,String subjectId,String teacherId){
-		
+		boolean flag = false;
 		//获取身份
 		String indentity = user.judgeIndentityByUserId(studentId);
 		
 		//获取上课内容
-		Tempsign tempsign = Tempsign.dao.findById(studentId);
+		Tempsign tempsign = Tempsign.dao.findById(studentId,teacherId);
 		
-		return true;
+		//判断合法性
+		if (indentity == "student" && tempsign != null) {
+			flag = true;
+		}
+		
+		return flag;
 	}
 }
