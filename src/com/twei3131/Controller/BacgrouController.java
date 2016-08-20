@@ -1,11 +1,13 @@
 package com.twei3131.Controller;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.jfinal.core.Controller;
 import com.jfinal.kit.JsonKit;
+import com.jfinal.kit.PathKit;
 import com.twei3131.common.model.Classes;
 import com.twei3131.common.model.Signerror;
 import com.twei3131.common.model.Student;
@@ -168,6 +170,10 @@ public class BacgrouController extends Controller {
 	}
 	
 	public void downloadFile(){
-		
+		String filename = getPara(0);
+		final String basePath = PathKit.getWebRootPath()+File.separator+"twei3131Load"+File.separator;
+		String path = basePath+filename+".xlxs";
+		File file = new File(path);
+		renderFile(file);
 	}
 }
