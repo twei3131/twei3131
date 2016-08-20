@@ -166,4 +166,8 @@ public class BacgrouController extends Controller {
 		String json = JsonKit.toJson(map);
 		renderJson(json);
 	}
+	
+	public void downloadFile(){
+		
+	}
 }

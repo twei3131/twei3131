@@ -29,6 +29,8 @@ public class MainConfig extends JFinalConfig {
 		me.setViewType(ViewType.JSP);
 		PropKit.use("config.properties");
 		me.setDevMode(PropKit.getBoolean("devMode"));
+		me.setBaseUploadPath("twei3131Load");
+		me.setMaxPostSize(104857600);
 	}
 
 	@Override
