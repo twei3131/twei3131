@@ -81,7 +81,7 @@ public class BacgrouController extends Controller {
 		Signerror signerror = Signerror.dao.findById(stuId,times);
 		String state = signerror.getAuditState();
 		if (state.equals("Œ¥…Û∫À")) {
-			signerror.setAuditState("…Û∫À");
+			signerror.setAuditState("“—…Û∫À");
 			flag = signerror.update();
 		}
 		
