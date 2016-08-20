@@ -169,6 +169,10 @@ public class BacgrouController extends Controller {
 		renderJson(json);
 	}
 	
+	public void getDownPage(){
+		
+	}
+	
 	public void downloadFile(){
 		String filename = getPara(0);
 		final String basePath = PathKit.getWebRootPath()+File.separator+"twei3131Load"+File.separator;
