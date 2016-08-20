@@ -170,6 +170,7 @@ public class BacgrouController extends Controller {
 	}
 	
 	public void getDownPage(){
+		String type = getPara(0);
 		
 	}
 	
