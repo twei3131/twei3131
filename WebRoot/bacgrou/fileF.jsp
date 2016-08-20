@@ -326,7 +326,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputFile">File input</label>
                                             <input type="file" id="exampleInputFile">
-                                            <p class="help-block"><a href="javascript:void(0)">示例文件下载</a></p>
+                                            <p class="help-block"><a href="/bacgrou/downloadFile/${filename}">示例文件下载</a></p>
                                         </div>
 										<button type="submit" class="btn btn-default">Submit</button>
                                     </form>
