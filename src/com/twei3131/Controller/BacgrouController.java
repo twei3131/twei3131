@@ -171,13 +171,14 @@ public class BacgrouController extends Controller {
 	
 	public void getDownPage(){
 		String type = getPara(0);
-		
+		setAttr("filename", type);
+		render("/bacgrou/fileF.jsp");
 	}
 	
 	public void downloadFile(){
 		String filename = getPara(0);
 		final String basePath = PathKit.getWebRootPath()+File.separator+"twei3131Load"+File.separator;
-		String path = basePath+filename+".xlxs";
+		String path = basePath + filename + ".xlsx";
 		File file = new File(path);
 		renderFile(file);
 	}
