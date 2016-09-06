@@ -75,7 +75,7 @@ function sub(){
 	$.post("/teacher/initQRCode",{"teacherId":username,"password":password,"subjectId":subjectId,"groupId":groupId},function(data){
 		if(data.errcode == "100"){
 			alert("非法");
-		}else if(data.errcode == "100"){
+		}else if(data.errcode == "200"){
 			alert("不能重复");
 		}else if(data.errcode = "000"){
 			window.localStorage['qrcodeUrl'] = data.url; 

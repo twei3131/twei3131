@@ -3,6 +3,8 @@ package com.twei3131.Controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import com.jfinal.core.Controller;
 import com.twei3131.service.Users;
 
@@ -67,8 +69,9 @@ public class UserController extends Controller {
 				//返回用户名和密码
 				setAttr("username", username);
 				setAttr("password", password);
-				setSessionAttr("username", username);
-				setSessionAttr("password", password);
+				
+				setSessionAttr("status", "200");
+				
 				render("/teacher/teacher.jsp");
 			}
 		}else{
