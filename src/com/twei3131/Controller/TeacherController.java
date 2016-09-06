@@ -9,6 +9,7 @@ import com.jfinal.core.Controller;
 import com.jfinal.kit.JsonKit;
 import com.jfinal.plugin.activerecord.Record;
 import com.twei3131.common.model.Student;
+import com.twei3131.common.model.Teacher;
 import com.twei3131.service.Scan;
 import com.twei3131.service.Teacheres;
 
@@ -115,6 +116,17 @@ public class TeacherController extends Controller {
 		}
 		String json = JsonKit.toJson(arr);
 		renderJson(json);
+	}
+	
+	/*
+	 * 根据教师号获取教师姓名
+	 */
+	public void getNameByUserId(){
+		String username = getPara("username");
+		Teacher teachere = Teacher.dao.findById(username);
+		String name = teachere.getTeacherName();
+		setAttr("name", name);
+		renderJson();
 	}
 
 }

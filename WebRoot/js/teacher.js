@@ -1,6 +1,7 @@
 window.onload = function(){
 	setKey();
 	aja();
+	getName();
 	listenSelect();
 	var i = 0;
 	setInterval(function(){
@@ -68,8 +69,8 @@ function setKey(){
 }
 
 function sub(){
-	var username = $("#username").text();
-	var password = $("#password").text();
+	var username = localStorage['username'];
+	var password = localStorage['password'];
 	var subjectId = $("#subId  option:selected").val();
 	var groupId = $("#gpId option:selected").val();
 	$.post("/teacher/initQRCode",{"teacherId":username,"password":password,"subjectId":subjectId,"groupId":groupId},function(data){
@@ -77,9 +78,17 @@ function sub(){
 			alert("非法");
 		}else if(data.errcode == "200"){
 			alert("不能重复");
-		}else if(data.errcode = "000"){
+		}else if(data.errcode == "000"){
 			window.localStorage['qrcodeUrl'] = data.url; 
 			window.location = "/teacher/qrcode.jsp";
 		}
+	});
+}
+
+//获取姓名
+function getName(){
+	var username = localStorage['username'];
+	$.post("/teacher/getNameByUserId",{"username":username},function(data){
+		$("#teaname").text(data.name);
 	});
 }
