@@ -83,6 +83,17 @@ public class Teacheres {
 	 * 更改课程状态
 	 */
 	public boolean unlockState(String teacherId,String subjectId){
+		String sql = "select * from subjectInfo where teacherId = '"+teacherId+"' and subjectId='"+subjectId+"'and state='上课中'";
+		Subjectinfo subjectinfo = Subjectinfo.dao.findFirst(sql);
+		subjectinfo.setState("下课");
+		Boolean flag = subjectinfo.update();
+		return flag;
+	}
+	
+	/*
+	 * 解除学生锁定状态
+	 */
+	public boolean unlockStuScanState(String teacherId,String subjectId){
 		
 		return true;
 	}
