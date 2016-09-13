@@ -16,7 +16,7 @@ window.onload = function(){
 
 //获取课程
 function aja(){
-	if(window.localStorage['username'] != "" && window.localStorage['password'] != ""){
+	if(window.localStorage['username'] != null && window.localStorage['password'] != null){
 		$.post("/teacher/getInfo",{"username":localStorage['username'],"password":localStorage['password']},function(data){
 			var datas = "";
 			var i = 0;
@@ -26,8 +26,6 @@ function aja(){
 			});
 			$("#subId").html(datas);
 		});
-	}else{
-		window.location="/user/login.jsp";
 	}
 }
 
@@ -51,9 +49,13 @@ function getGroupIds(){
 function setKey(){
 	var username = $("#username").text();
 	var password = $("#password").text();
-	if(localStorage['username'] == "" && localStorage['password'] == ""){
-		localStorage['username'] = username;
-		localStorage['password'] = password;
+	if(localStorage['username'] == null && localStorage['password'] == null){
+		if(username != "" || password != ""){
+			localStorage['username'] = username;
+			localStorage['password'] = password;
+		}else{
+			window.location = "/user/login.jsp";
+		}
 	}
 }
 
