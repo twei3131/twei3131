@@ -47,7 +47,11 @@ public class Students {
 			if (studentState.equals("正常")) {
 				stuState = "早退";
 			}else if (studentState.equals("迟到")) {
-				studentState = "迟到早退";
+				stuState = "迟到早退";
+			}else if (studentState.equals("旷课")) {
+				stuState = "旷课";
+			}else if (studentState.equals("正常下课")) {
+				stuState = "正常下课";
 			}
 		}
 
