@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>生成二维码</title>
-<link rel="stylesheet" type="text/css" href="./../css/teacher.css">
+<link rel="stylesheet" type="text/css" href="/css/teacher.css">
 </head>
 <body>
 	<div id="bott">
@@ -16,7 +16,7 @@
 				<a href="/teacher/initQRCode?teacherId=tea0002&password=13&subjectId=sub0003&groupId=gp0002">生成二维码</a>
 			</ul>
 		</div>
-	<script type="text/javascript" src="./../lib/jquery-3.1.0.min.js"></script>
-	<script type="text/javascript" src="./../js/teacher.js"></script>
+	<script type="text/javascript" src="/lib/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="/js/teacher.js"></script>
 </body>
 </html>
