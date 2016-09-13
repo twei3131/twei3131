@@ -1,0 +1,145 @@
+Table: classes
+--------------+-------------+------+-----+---------+---------
+ Field        | Type        | Null | Key | Default | Remarks 
+--------------+-------------+------+-----+---------+---------
+ classId      | VARCHAR(15) | NO   | PRI |         |         
+ departmentId | VARCHAR(15) | NO   |     |         |         
+ gradeId      | INT(10)     | NO   |     |         |         
+ instructorId | VARCHAR(15) | NO   |     |         |         
+ name         | VARCHAR(15) | YES  |     |         |         
+--------------+-------------+------+-----+---------+---------
+
+Table: department
+--------------------+--------------+------+-----+---------+---------
+ Field              | Type         | Null | Key | Default | Remarks 
+--------------------+--------------+------+-----+---------+---------
+ departmentId       | VARCHAR(15)  | NO   | PRI |         |         
+ departmentName     | VARCHAR(255) | NO   |     |         |         
+ departmentLeaderId | VARCHAR(15)  | NO   |     |         |         
+--------------------+--------------+------+-----+---------+---------
+
+Table: grade
+---------+------------+------+-----+---------+---------
+ Field   | Type       | Null | Key | Default | Remarks 
+---------+------------+------+-----+---------+---------
+ gradeId | INT(10)    | NO   | PRI |         |         
+ name    | VARCHAR(2) | NO   |     |         |         
+---------+------------+------+-----+---------+---------
+
+Table: group
+-----------+-------------+------+-----+---------+---------
+ Field     | Type        | Null | Key | Default | Remarks 
+-----------+-------------+------+-----+---------+---------
+ groupId   | VARCHAR(15) | NO   | PRI |         |         
+ studentId | VARCHAR(15) | YES  |     |         |         
+ classId   | VARCHAR(15) | YES  |     |         |         
+ teacherId | VARCHAR(15) | NO   |     |         |         
+-----------+-------------+------+-----+---------+---------
+
+Table: grouptosubject
+-----------+-------------+------+-----+---------+---------
+ Field     | Type        | Null | Key | Default | Remarks 
+-----------+-------------+------+-----+---------+---------
+ groupId   | VARCHAR(15) | NO   | PRI |         |         
+ subjectId | VARCHAR(15) | NO   | PRI |         |         
+-----------+-------------+------+-----+---------+---------
+
+Table: instructor
+----------------+--------------+------+-----+---------+---------
+ Field          | Type         | Null | Key | Default | Remarks 
+----------------+--------------+------+-----+---------+---------
+ instructorId   | VARCHAR(15)  | NO   | PRI |         |         
+ instructorName | VARCHAR(255) | NO   |     |         |         
+ phoneNumber    | VARCHAR(15)  | NO   |     |         |         
+ password       | VARCHAR(15)  | NO   |     | none    |         
+----------------+--------------+------+-----+---------+---------
+
+Table: signerror
+-----------+-------------+------+-----+---------+---------
+ Field     | Type        | Null | Key | Default | Remarks 
+-----------+-------------+------+-----+---------+---------
+ studentId | VARCHAR(25) | NO   | PRI |         |         
+ teacherId | VARCHAR(25) | NO   |     |         |         
+ subjectId | VARCHAR(25) | NO   |     |         |         
+ state     | ENUM(4)     | NO   |     | 未到      |         
+-----------+-------------+------+-----+---------+---------
+
+Table: student
+--------------+--------------+------+-----+---------+---------
+ Field        | Type         | Null | Key | Default | Remarks 
+--------------+--------------+------+-----+---------+---------
+ studentId    | VARCHAR(15)  | NO   | PRI |         |         
+ studentName  | VARCHAR(255) | NO   |     |         |         
+ departmentId | INT(10)      | NO   |     |         |         
+ classId      | INT(10)      | NO   |     |         |         
+ password     | VARCHAR(255) | NO   |     | none    |         
+--------------+--------------+------+-----+---------+---------
+
+Table: subject
+-------------+--------------+------+-----+---------+---------
+ Field       | Type         | Null | Key | Default | Remarks 
+-------------+--------------+------+-----+---------+---------
+ subjectId   | VARCHAR(10)  | NO   | PRI |         |         
+ subjectName | VARCHAR(255) | NO   |     |         |         
+ classNumber | INT(10)      | NO   |     |         |         
+ type        | ENUM(3)      | NO   |     | 必修      |         
+-------------+--------------+------+-----+---------+---------
+
+Table: subjectinfo
+---------------+-------------+------+-----+---------+---------
+ Field         | Type        | Null | Key | Default | Remarks 
+---------------+-------------+------+-----+---------+---------
+ subjectInfoId | INT(10)     | NO   | PRI |         |         
+ teacherId     | VARCHAR(25) | NO   |     |         |         
+ subjectId     | VARCHAR(25) | NO   |     |         |         
+ state         | ENUM(4)     | NO   |     | 未开始     |         
+---------------+-------------+------+-----+---------+---------
+
+Table: subjecttoteacher
+-----------+-------------+------+-----+---------+---------
+ Field     | Type        | Null | Key | Default | Remarks 
+-----------+-------------+------+-----+---------+---------
+ subjectId | VARCHAR(15) | NO   | PRI |         |         
+ teacherId | VARCHAR(15) | NO   | PRI |         |         
+-----------+-------------+------+-----+---------+---------
+
+Table: subjecttotimes
+-----------+-------------+------+-----+---------+---------
+ Field     | Type        | Null | Key | Default | Remarks 
+-----------+-------------+------+-----+---------+---------
+ subjectId | VARCHAR(15) | NO   | PRI |         |         
+ timesId   | VARCHAR(15) | NO   | PRI |         |         
+-----------+-------------+------+-----+---------+---------
+
+Table: teacher
+--------------+--------------+------+-----+---------+---------
+ Field        | Type         | Null | Key | Default | Remarks 
+--------------+--------------+------+-----+---------+---------
+ teacherId    | VARCHAR(15)  | NO   | PRI |         |         
+ teacherName  | VARCHAR(255) | NO   |     |         |         
+ departmentId | VARCHAR(15)  | NO   |     |         |         
+ password     | VARCHAR(255) | NO   |     | none    |         
+--------------+--------------+------+-----+---------+---------
+
+Table: tempsign
+-----------+--------------+------+-----+---------+---------
+ Field     | Type         | Null | Key | Default | Remarks 
+-----------+--------------+------+-----+---------+---------
+ studentId | VARCHAR(25)  | NO   | PRI |         |         
+ teacherId | VARCHAR(25)  | NO   |     |         |         
+ subjectId | VARCHAR(25)  | NO   |     |         |         
+ state     | ENUM(4)      | NO   |     | 未到      |         
+ scanState | ENUM(5)      | NO   |     | false   |         
+ hostname  | VARCHAR(255) | YES  |     |         |         
+-----------+--------------+------+-----+---------+---------
+
+Table: times
+-----------+---------+------+-----+---------+---------
+ Field     | Type    | Null | Key | Default | Remarks 
+-----------+---------+------+-----+---------+---------
+ days      | INT(10) | YES  |     |         |         
+ startTime | TIME(8) | YES  |     |         |         
+ endTime   | TIME(8) | YES  |     |         |         
+ timesId   | INT(10) | NO   | PRI |         |         
+-----------+---------+------+-----+---------+---------
+
