@@ -1,0 +1,45 @@
+body{
+	background-image: url(./../img/register6.jpg);
+}
+
+ul li {
+	list-style: none;
+	font-size: 60px;
+	padding-top: 20px;
+	padding-left: 60px;
+}
+
+select{
+	width: 400px;
+	height: 60px;
+	position: relative;
+	bottom: 10px;
+}
+
+#teaname{
+	padding-left: 280px;
+}
+
+#bott{
+	border-radius: 10px;
+	border-width: 3px;
+	border-style: solid;
+	border-color: black;
+	height: 500px;
+	width: 900px;
+	padding-top: 20px;
+	position: relative;
+	left: 26px;
+	top: 300px;
+}
+
+a{
+	text-decoration: none;
+	color: white;
+	background-color: blue;
+	font-size: 60px;
+	border-radius: 10px;
+	margin-left: 260px;
+	position: relative;
+	top: 60px;
+}
