@@ -7,7 +7,7 @@
 <title>生成二维码</title>
 </head>
 <body>
-<center><h1><a href="/teacher/initQRCode?teacherId=tea0001&password=11&subjectId=sub0001&groupId=gp0001">1</a></h1></center>
+<center><h1><a href="/teacher/initQRCode?teacherId=tea0002&password=13&subjectId=sub0003&groupId=gp0002">1</a></h1></center>
 <div id="qrcode"></div>
 <div id="hideSpace" style="display:none;">${url}</div>
 <script type="text/javascript" src="/lib/jquery-3.1.0.min.js"></script>

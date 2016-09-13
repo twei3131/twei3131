@@ -30,10 +30,11 @@ Table: group
 -----------+-------------+------+-----+---------+---------
  Field     | Type        | Null | Key | Default | Remarks 
 -----------+-------------+------+-----+---------+---------
- groupId   | VARCHAR(15) | NO   | PRI |         |         
+ groupId   | VARCHAR(15) | NO   |     |         |         
  studentId | VARCHAR(15) | YES  |     |         |         
  classId   | VARCHAR(15) | YES  |     |         |         
  teacherId | VARCHAR(15) | NO   |     |         |         
+ id        | INT(10)     | NO   | PRI |         |         
 -----------+-------------+------+-----+---------+---------
 
 Table: grouptosubject

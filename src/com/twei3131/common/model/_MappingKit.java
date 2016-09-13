@@ -19,7 +19,7 @@ public class _MappingKit {
 		arp.addMapping("classes", "classId", Classes.class);
 		arp.addMapping("department", "departmentId", Department.class);
 		arp.addMapping("grade", "gradeId", Grade.class);
-		arp.addMapping("group", "groupId", Group.class);
+		arp.addMapping("group", "id", Group.class);
 		// Composite Primary Key order: groupId,subjectId
 		arp.addMapping("grouptosubject", "groupId,subjectId", Grouptosubject.class);
 		arp.addMapping("instructor", "instructorId", Instructor.class);

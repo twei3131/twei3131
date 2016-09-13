@@ -41,4 +41,12 @@ public abstract class BaseGroup<M extends BaseGroup<M>> extends Model<M> impleme
 		return get("teacherId");
 	}
 
+	public void setId(java.lang.Integer id) {
+		set("id", id);
+	}
+
+	public java.lang.Integer getId() {
+		return get("id");
+	}
+
 }
