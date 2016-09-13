@@ -18,6 +18,6 @@ function aja(){
 			
 		});
 	}else{
-		$.get("1");
+		$.get("");
 	}
 }
