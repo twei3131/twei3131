@@ -116,21 +116,21 @@ public class Teacheres {
 	 * 删除状态为正常下课的学生
 	 */
 	public boolean deletStu(String teacherId){
-		String sql = "delete * from tempsign where state = '正常下课' and teacherId = ?";
+		String sql = "delete from tempsign where state = '正常下课' and teacherId = ?";
 		Integer i = Db.update(sql,teacherId);
 		return i >= 0;
 	}
 	
 	public void setSignError(String teacherId){
 		List<Tempsign> tempsign = Tempsign.dao.find("select * from tempsign where teacherId = ?",teacherId);
-		List<Signerror> signerrors = new ArrayList<Signerror>();
 		for(int i = 0;i < tempsign.size();i++){
-			signerrors.get(i).setStudentId(tempsign.get(i).getStudentId());
-			signerrors.get(i).setSubjectId(tempsign.get(i).getSubjectId());
-			signerrors.get(i).setTeacherId(tempsign.get(i).getTeacherId());
-			signerrors.get(i).setState(tempsign.get(i).getState());
-			signerrors.get(i).setAuditState("未审核");
+			Signerror signerror = new Signerror();
+			signerror.setStudentId(tempsign.get(i).getStudentId());
+			signerror.setSubjectId(tempsign.get(i).getSubjectId());
+			signerror.setTeacherId(tempsign.get(i).getTeacherId());
+			signerror.setState(tempsign.get(i).getState());
+			signerror.setAuditState("未审核");
+			signerror.save();
 		}
-		Db.batchSave(signerrors, tempsign.size());
 	}
 }
