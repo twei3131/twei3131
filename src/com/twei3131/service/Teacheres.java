@@ -130,6 +130,7 @@ public class Teacheres {
 			signerror.setTeacherId(tempsign.get(i).getTeacherId());
 			signerror.setState(tempsign.get(i).getState());
 			signerror.setAuditState("Œ¥…Û∫À");
+			System.out.println(1);
 			signerror.save();
 		}
 	}
