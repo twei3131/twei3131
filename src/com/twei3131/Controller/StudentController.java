@@ -21,7 +21,7 @@ public class StudentController extends Controller {
 		String subjectId = getPara("subjectId");
 		
 		String sql = "select count(*) from subjectInfo "+ 
-				"where teacherId = '"+teacherId+"' and subjectId = '"+subjectId+"' and state = '即将开始'";
+				"where teacherId = '"+teacherId+"' and subjectId = '"+subjectId+"' and (state = '即将开始' or state='上课中')";
 		long count = Db.queryLong(sql);
 		
 		//设置session

@@ -24,4 +24,26 @@ public class Students {
 
 		return studentState;
 	}
+	
+	/*
+	 * 更具学生状态判断学生状态
+	 */
+	public String getStuStateByStuState(String scanState,String studentState){
+		
+		String stuState = "";//初始化学生上课状态
+		if (scanState.equals("xk")) {
+			if (studentState.equals("迟到")) {
+				stuState = "迟到";
+			}else if (studentState.equals("未到")) {
+				stuState = "旷课";
+			}
+		}else if (scanState.equals("fs")) {
+			if (studentState.equals("正常")) {
+				stuState = "早退";
+			}else if (studentState.equals("迟到")) {
+				studentState = "迟到早退";
+			}
+		}
+		return stuState;
+	}
 }
