@@ -73,6 +73,13 @@ function sub(){
 	var subjectId = $("#subId  option:selected").val();
 	var groupId = $("#gpId option:selected").val();
 	$.post("/teacher/initQRCode",{"teacherId":username,"password":password,"subjectId":subjectId,"groupId":groupId},function(data){
-		
+		if(data.errcode == "100"){
+			alert("非法");
+		}else if(data.errcode == "100"){
+			alert("不能重复");
+		}else if(data.errcode = "000"){
+			var urls = "/teacher/qrcode.jsp?" + data.url; 
+			window.location = urls;
+		}
 	});
 }

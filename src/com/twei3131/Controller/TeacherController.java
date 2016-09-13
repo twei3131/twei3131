@@ -28,6 +28,10 @@ public class TeacherController extends Controller {
 		String subjectId = getPara("subjectId");
 		String groupId = getPara("groupId");
 		
+		if (teacherId.equals("") || password.equals("") || subjectId.equals("") || groupId.equals("")) {
+			renderError(500);
+		}
+		
 		Scan scan = new Scan();
 		
 		//教师的合法性
@@ -50,8 +54,9 @@ public class TeacherController extends Controller {
 		if (isLegal && !isReScan) {
 			List<Student> list = scan.getStudentInfoBySubjectId(teacherId, subjectId, groupId);
 			scan.setStudentInfo(list, teacherId, subjectId);
+			setAttr("errcode", "000");
 			setAttr("url", "www.baidu.com?subjectId="+subjectId+"&teacherId="+teacherId);
-			render("/teacher/qrcode.jsp");
+			renderJson();
 		}
 	}
 	
