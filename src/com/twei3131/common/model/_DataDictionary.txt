@@ -35,6 +35,7 @@ Table: group
  classId   | VARCHAR(15) | YES  |     |         |         
  teacherId | VARCHAR(15) | NO   |     |         |         
  id        | INT(10)     | NO   | PRI |         |         
+ groupName | VARCHAR(15) | YES  |     |         |         
 -----------+-------------+------+-----+---------+---------
 
 Table: grouptosubject

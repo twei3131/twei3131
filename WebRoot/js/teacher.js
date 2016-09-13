@@ -1,6 +1,7 @@
 window.onload = function(){
 	setKey();
 	aja();
+	listenSelect();
 	var i = 0;
 	setInterval(function(){
 		i++;
@@ -28,6 +29,20 @@ function aja(){
 	}else{
 		window.location="/user/login.jsp";
 	}
+}
+
+//监听select
+function listenSelect(){
+	$("select").on('click',function(){
+		getGroupId();
+	});
+}
+
+//获取组编号
+function getGroupId(){
+	$.post("",{},function(data){
+		
+	});
 }
 
 //设置localStorage

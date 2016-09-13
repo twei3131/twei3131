@@ -49,4 +49,12 @@ public abstract class BaseGroup<M extends BaseGroup<M>> extends Model<M> impleme
 		return get("id");
 	}
 
+	public void setGroupName(java.lang.String groupName) {
+		set("groupName", groupName);
+	}
+
+	public java.lang.String getGroupName() {
+		return get("groupName");
+	}
+
 }

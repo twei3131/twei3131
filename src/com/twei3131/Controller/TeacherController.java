@@ -73,5 +73,12 @@ public class TeacherController extends Controller {
 		String json = JsonKit.toJson(arr);//生成Json数据
 		renderJson(json);
 	}
+	
+	/*
+	 * 获取组编号
+	 */
+	public void getGroupId(){
+		
+	}
 
 }

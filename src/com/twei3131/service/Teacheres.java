@@ -1,6 +1,5 @@
 package com.twei3131.service;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -54,5 +53,12 @@ public class Teacheres {
 		List<Record> list = Db.find(sql, userId);
 		
 		return list;
+	}
+	
+	/*
+	 * »ñÈ¡×é±àºÅ
+	 */
+	public List<Record> getGpId(String teacherId,String subjectId){
+		return null;
 	}
 }
