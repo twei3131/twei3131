@@ -105,7 +105,7 @@ public class Teacheres {
 	 * 更改课程状态为放学
 	 */
 	public boolean setFs(String teacherId,String subjectId){
-		String sql = "select * from subjectInfo where teacherId = '"+teacherId+"' and subjectId='"+subjectId+"'and state='上课中'";
+		String sql = "select * from subjectInfo where teacherId = '"+teacherId+"' and subjectId='"+subjectId+"'and state='下课'";
 		Subjectinfo subjectinfo = Subjectinfo.dao.findFirst(sql);
 		subjectinfo.setState("放学");
 		Boolean flag = subjectinfo.update();

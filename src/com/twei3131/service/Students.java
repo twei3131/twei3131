@@ -40,6 +40,8 @@ public class Students {
 				stuState = "迟到";
 			}else if (studentState.equals("未到")) {
 				stuState = "旷课";
+			}else if (studentState.equals("正常")) {
+				stuState = "正常";
 			}
 		}else if (scanState.equals("fs")) {
 			if (studentState.equals("正常")) {
@@ -48,6 +50,7 @@ public class Students {
 				studentState = "迟到早退";
 			}
 		}
+
 		return stuState;
 	}
 	
