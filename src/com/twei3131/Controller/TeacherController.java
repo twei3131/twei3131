@@ -68,10 +68,9 @@ public class TeacherController extends Controller {
 		for(int i = 0;i < list.size();i++){
 			map.put("subjectId", list.get(i).getStr("subjectId"));
 			map.put("subjectName", list.get(i).getStr("subjectName"));
-			arr.add(map);
-			map.clear();
+			arr.add(map);//将map封装到数组里
 		}
-		String json = JsonKit.toJson(arr);
+		String json = JsonKit.toJson(arr);//生成Json数据
 		renderJson(json);
 	}
 

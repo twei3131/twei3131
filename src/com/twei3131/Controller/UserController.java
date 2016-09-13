@@ -58,12 +58,12 @@ public class UserController extends Controller {
 		String username = getPara("username");
 		String password = getPara("password");
 		String vcode = getPara("vcode");
-		
+
 		//判断用户的合法性
 		Boolean isUser = user.isUserByUserId(username, password);
-		
+
 		if (isUser) {
-			if (user.judgeIndentityByUserId(username).equals("teacher")) {
+			if (user.judgeIndentityByUserId(username) == "teacher") {
 				//返回用户名和密码
 				setAttr("username", username);
 				setAttr("password", password);
