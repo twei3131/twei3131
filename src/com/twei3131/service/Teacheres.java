@@ -93,8 +93,8 @@ public class Teacheres {
 	/*
 	 * 解除学生锁定状态
 	 */
-	public boolean unlockStuScanState(String teacherId,String subjectId){
-		
-		return true;
+	public boolean unlockStuScanState(String teacherId){
+		Integer i = Db.update("update tempsign set scanState = 'true' where teacherId = ?",teacherId);
+		return i >= 0;
 	}
 }
