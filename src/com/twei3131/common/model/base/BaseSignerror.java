@@ -41,4 +41,12 @@ public abstract class BaseSignerror<M extends BaseSignerror<M>> extends Model<M>
 		return get("state");
 	}
 
+	public void setAuditState(java.lang.String auditState) {
+		set("auditState", auditState);
+	}
+
+	public java.lang.String getAuditState() {
+		return get("auditState");
+	}
+
 }

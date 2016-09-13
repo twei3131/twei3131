@@ -168,8 +168,22 @@ public class TeacherController extends Controller {
 		students.updateStuState(teacherId, "xk");//更改部分学生上课状态
 		
 		setAttr("name", "放学");
-		setAttr("href", "javascript:void(0)");
+		setAttr("href", "/teacher/fd?subjectId="+subjectId+"&teacherId="+teacherId);
 		
 		render("/teacher/qrcodeNext.jsp");
+	}
+	
+	/*
+	 * 老师点放学按钮
+	 */
+	public void fd(){
+		String subjectId = getPara("subjectId");
+		String teacherId = getPara("teacherId");
+		
+		teacheres.setFs(teacherId, subjectId);//更改课程状态为放学
+		
+		students.updateStuState(teacherId, "fs");//更改部分学生上课状态
+		
+		
 	}
 }

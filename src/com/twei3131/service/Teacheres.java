@@ -7,6 +7,7 @@ import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Record;
 import com.twei3131.common.model.Subjectinfo;
 import com.twei3131.common.model.Teacher;
+import com.twei3131.common.model.Tempsign;
 
 public class Teacheres {
 	/*
@@ -96,5 +97,30 @@ public class Teacheres {
 	public boolean unlockStuScanState(String teacherId){
 		Integer i = Db.update("update tempsign set scanState = 'true' where teacherId = ?",teacherId);
 		return i >= 0;
+	}
+	
+	/*
+	 * 更改课程状态为放学
+	 */
+	public boolean setFs(String teacherId,String subjectId){
+		String sql = "select * from subjectInfo where teacherId = '"+teacherId+"' and subjectId='"+subjectId+"'and state='上课中'";
+		Subjectinfo subjectinfo = Subjectinfo.dao.findFirst(sql);
+		subjectinfo.setState("放学");
+		Boolean flag = subjectinfo.update();
+		return flag;
+	}
+	
+	/*
+	 * 删除状态为正常下课的学生
+	 */
+	public boolean deletStu(String teacherId){
+		String sql = "delete * from tempsign where state = '正常下课' and teacherId = ?";
+		Integer i = Db.update(sql,teacherId);
+		return i >= 0;
+	}
+	
+	public void setSignError(String teacherId){
+		List<Tempsign> tempsign = Tempsign.dao.find("select * from tempsign where teacherId = ?",teacherId);
+		
 	}
 }
