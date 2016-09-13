@@ -16,7 +16,7 @@ window.onload = function(){
 
 //获取课程
 function aja(){
-	if(window.localStorage['username'] != null && window.localStorage['password'] != null){
+	if(window.localStorage['username'] != "" && window.localStorage['password'] != ""){
 		$.post("/teacher/getInfo",{"username":localStorage['username'],"password":localStorage['password']},function(data){
 			var datas = "";
 			var i = 0;
@@ -51,7 +51,7 @@ function getGroupIds(){
 function setKey(){
 	var username = $("#username").text();
 	var password = $("#password").text();
-	if(localStorage['username'] == null && localStorage['password'] == null){
+	if(localStorage['username'] == "" && localStorage['password'] == ""){
 		localStorage['username'] = username;
 		localStorage['password'] = password;
 	}
