@@ -184,6 +184,13 @@ public class TeacherController extends Controller {
 		
 		students.updateStuState(teacherId, "fs");//更改部分学生上课状态
 		
+		teacheres.deletStu(teacherId);//更改课程状态为放学
 		
+		teacheres.setSignError(teacherId);//删除状态为正常下课的学生
+		
+		setAttr("name", "结束");
+		setAttr("href", "javascript:void(0)");
+		
+		render("/teacher/qrcodeNext.jsp");
 	}
 }
