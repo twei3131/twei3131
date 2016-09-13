@@ -121,6 +121,12 @@ public class Teacheres {
 		return i >= 0;
 	}
 	
+	public boolean delStu(String teacherId){
+		String sql = "delete from tempsign where teacherId = ?";
+		Integer i = Db.update(sql,teacherId);
+		return i>= 0;
+	}
+	
 	public void setSignError(String teacherId){
 		List<Tempsign> tempsign = Tempsign.dao.find("select * from tempsign where teacherId = ?",teacherId);
 		for(int i = 0;i < tempsign.size();i++){

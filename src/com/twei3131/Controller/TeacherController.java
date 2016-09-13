@@ -188,6 +188,8 @@ public class TeacherController extends Controller {
 		
 		teacheres.setSignError(teacherId);//删除状态为正常下课的学生
 		
+		teacheres.delStu(teacherId);//删除剩下的所有学生
+		
 		setAttr("name", "结束");
 		setAttr("href", "javascript:void(0)");
 		
