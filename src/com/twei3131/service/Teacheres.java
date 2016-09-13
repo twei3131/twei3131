@@ -1,10 +1,12 @@
 package com.twei3131.service;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Record;
+import com.twei3131.common.model.Signerror;
 import com.twei3131.common.model.Subjectinfo;
 import com.twei3131.common.model.Teacher;
 import com.twei3131.common.model.Tempsign;
@@ -121,6 +123,14 @@ public class Teacheres {
 	
 	public void setSignError(String teacherId){
 		List<Tempsign> tempsign = Tempsign.dao.find("select * from tempsign where teacherId = ?",teacherId);
-		
+		List<Signerror> signerrors = new ArrayList<Signerror>();
+		for(int i = 0;i < tempsign.size();i++){
+			signerrors.get(i).setStudentId(tempsign.get(i).getStudentId());
+			signerrors.get(i).setSubjectId(tempsign.get(i).getSubjectId());
+			signerrors.get(i).setTeacherId(tempsign.get(i).getTeacherId());
+			signerrors.get(i).setState(tempsign.get(i).getState());
+			signerrors.get(i).setAuditState("Î´ÉóºË");
+		}
+		Db.batchSave(signerrors, tempsign.size());
 	}
 }
