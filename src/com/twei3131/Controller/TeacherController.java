@@ -151,4 +151,11 @@ public class TeacherController extends Controller {
 			render("/teacher/qrcode.jsp");
 		}
 	}
+	
+	/*
+	 * 老师点击下课按钮
+	 */
+	public void doneSub(){
+		
+	}
 }
