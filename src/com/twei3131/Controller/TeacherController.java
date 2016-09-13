@@ -62,10 +62,10 @@ public class TeacherController extends Controller {
 		String username = getPara("username");
 		String password = getPara("password");
 		
-		Map<String, String> map = new HashMap<String,String>();
 		ArrayList<Map<String, String>> arr = new ArrayList<Map<String, String>>();
 		List<Record> list = teacheres.getSubjectIdByUserId(username);
 		for(int i = 0;i < list.size();i++){
+			Map<String, String> map = new HashMap<String,String>();
 			map.put("subjectId", list.get(i).getStr("subjectId"));
 			map.put("subjectName", list.get(i).getStr("subjectName"));
 			arr.add(map);//将map封装到数组里

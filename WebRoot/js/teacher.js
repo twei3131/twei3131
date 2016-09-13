@@ -25,7 +25,7 @@ function aja(){
 			$("#subId").html(datas);
 		});
 	}else{
-		//window.location="/user/login.jsp";
+		window.location="/user/login.jsp";
 	}
 }
 
