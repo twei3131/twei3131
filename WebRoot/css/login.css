@@ -1,0 +1,46 @@
+#form{
+	width: 700px;
+	height: 600px;
+	margin: 0 auto;
+	position: relative;
+	top: 300px;
+	background-color: rgba(171,157,157,0.5);
+	border-radius: 16px;
+}
+
+#form div{
+	font-size: 60px;
+	margin-left: 200px;
+	position: relative;
+	top: 50px;
+}
+
+ul{
+	position: relative;
+	top: 50px;
+	list-style: none;
+}
+
+li{
+	padding-top: 30px;
+}
+
+li label{
+	font-size: 60px;
+}
+
+li input{
+	width: 360px;
+	height: 70px;
+	position: relative;
+	bottom:14px;
+	font-size: 50px;
+}
+
+#img{
+	width: 180px;
+	height: 70px;
+	margin-top: -138px;
+	left: 227px;
+}
+

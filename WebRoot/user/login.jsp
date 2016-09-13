@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>登录</title>
+<link rel="stylesheet" type="text/css" href="/css/login.css">
+</head>
+<body>
+	<div id="form">
+		<div>登录窗体</div>
+		<form action="" method="post">
+			<ul>
+				<li><label>用户名：</label><input type="text" name="username" placeholder="用户名"></li>
+				<li><label>密	码：</label><input style="position:relative;left:30px;" type="text" name="username" placeholder="密码"></li>
+				<li><label>验证码：</label><input style="width:180px" type="text"><div id="img"></div></li>
+				<li></li>
+			</ul>
+		</form>
+	</div>
+</body>
+</html>
