@@ -70,8 +70,8 @@ function setKey(){
 function sub(){
 	var username = $("#username").text();
 	var password = $("#password").text();
-	var subjectId = $("#subId").val();
-	var groupId = $("#gpId").val();
+	var subjectId = $("#subId  option:selected").val();
+	var groupId = $("#gpId option:selected").val();
 	$.post("/teacher/initQRCode",{"teacherId":username,"password":password,"subjectId":subjectId,"groupId":groupId},function(data){
 		
 	});
