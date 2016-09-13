@@ -144,7 +144,7 @@ public class TeacherController extends Controller {
 		//判断是否修改成功
 		if (fla) {
 			setAttr("name","下课");
-			setAttr("href","javascript:void(0)");
+			setAttr("href","/teacher/doneSub?subjectId="+subjectId+"&teacherId="+teacherId);
 			render("/teacher/qrcodeNext.jsp");
 		}else{
 			setAttr("err", "500");
