@@ -31,7 +31,7 @@ function aja(){
 
 //监听select
 function listenSelect(){
-	$("select").on('click',function(){
+	$("#subId").on('click',function(){
 		getGroupIds();
 	});
 }
@@ -45,8 +45,10 @@ function getGroupIds(){
 			var i = 0;
 			var datas = "";
 			$.each(data,function(){
-				
+				datas += '<option value="'+data[i].groupId+'">'+data[i].groupName+'</option>';
+				i++;
 			});
+			$("#gpId").html(datas);
 		}
 	});
 }
