@@ -82,12 +82,28 @@ public class TeacherController extends Controller {
 		String subjectId = getPara("subjectId");
 		
 		ArrayList<Map<String, String>> arr = new ArrayList<Map<String, String>>();
+		
 		List<Record> list = teacheres.getGpId(username, subjectId);
+		
+		List<String> str = new ArrayList<String>();//初始化一个存储组编号的容器
+		boolean flag = true;//返回一个标识符
+		
 		for(int i = 0;i < list.size();i++){
-			Map<String, String> map = new HashMap<String,String>();
-			map.put("groupId", list.get(i).getStr("groupId"));
-			map.put("groupName", list.get(i).getStr("groupName"));
-			arr.add(map);
+			
+			str.add(list.get(i).getStr("groupId"));//存储groupId
+			//过滤器
+			for(int j = 0;j < str.size();j++){
+				if (list.get(i).getStr("groupId") == str.get(j) && i != 0) {
+					flag = false;
+				}
+			}
+			
+			if (flag == true) {
+				Map<String, String> map = new HashMap<String,String>();
+				map.put("groupId", list.get(i).getStr("groupId"));
+				map.put("groupName", list.get(i).getStr("groupName"));			
+				arr.add(map);
+			}
 		}
 		String json = JsonKit.toJson(arr);
 		renderJson(json);
