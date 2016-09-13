@@ -1,5 +1,9 @@
 package com.twei3131.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.jfinal.plugin.activerecord.Db;
 import com.twei3131.common.model.Tempsign;
 
 public class Students {
@@ -28,7 +32,7 @@ public class Students {
 	/*
 	 * 更具学生状态判断学生状态
 	 */
-	public String getStuStateByStuState(String scanState,String studentState){
+	public String setStuStateByStuState(String scanState,String studentState){
 		
 		String stuState = "";//初始化学生上课状态
 		if (scanState.equals("xk")) {
@@ -45,5 +49,13 @@ public class Students {
 			}
 		}
 		return stuState;
+	}
+	
+	public void updateStuState(String teacherId,String scanState){
+		List<Tempsign> list = Tempsign.dao.find("select * from tempsign where teacherId = ?",teacherId);
+		for(int i = 0;i < list.size();i++){
+			list.get(i).setState(setStuStateByStuState(scanState, list.get(i).getState()));
+		}
+		Db.batchUpdate(list, list.size());
 	}
 }

@@ -156,6 +156,9 @@ public class TeacherController extends Controller {
 	 * 老师点击下课按钮
 	 */
 	public void doneSub(){
+		String subjectId = getPara("subjectId");
+		String teacherId = getPara("teacherId");
+		
 		
 	}
 }
