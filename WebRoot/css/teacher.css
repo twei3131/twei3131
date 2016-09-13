@@ -43,3 +43,11 @@ a{
 	position: relative;
 	top: 60px;
 }
+
+select{
+	font-size:36px;
+}
+
+select option{
+	font-size:20px;
+}
