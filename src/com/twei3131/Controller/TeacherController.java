@@ -9,6 +9,7 @@ import com.jfinal.core.Controller;
 import com.jfinal.kit.JsonKit;
 import com.jfinal.plugin.activerecord.Record;
 import com.twei3131.common.model.Student;
+import com.twei3131.common.model.Subjectinfo;
 import com.twei3131.common.model.Teacher;
 import com.twei3131.service.Scan;
 import com.twei3131.service.Teacheres;
@@ -129,5 +130,20 @@ public class TeacherController extends Controller {
 		setAttr("name", name);
 		renderJson();
 	}
-
+	
+	/*
+	 * 教师点击上课按钮
+	 */
+	public void getSub(){
+		String subjectId = getPara(0);
+		String teacherId = getPara(1);
+		
+		//修改课程状态
+		String sql = "select * from subjectInfo where teacherId = '"+teacherId+"' and subjectId='"+subjectId+"'and state='即将开始'";
+		Subjectinfo subjectinfo = Subjectinfo.dao.findFirst(sql);
+		subjectinfo.setState("上课中");
+		subjectinfo.update();
+		
+		render("/teacher/qrcode.jsp");
+	}
 }
