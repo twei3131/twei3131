@@ -42,8 +42,8 @@ public class TeacherController extends Controller {
 		if (isLegal && !isReScan) {
 			List<Student> list = scan.getStudentInfoBySubjectId(teacherId, subjectId, groupId);
 			scan.setStudentInfo(list, teacherId, subjectId);
-			setAttr("url", "123456");
-			index();
+			setAttr("url", "www.baidu.com?subjectId="+subjectId+"&teacherId="+teacherId);
+			render("/teacher/qrcode.jsp");
 		}
 	}
 }
