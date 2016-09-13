@@ -12,10 +12,12 @@ import com.twei3131.common.model.Student;
 import com.twei3131.common.model.Subjectinfo;
 import com.twei3131.common.model.Teacher;
 import com.twei3131.service.Scan;
+import com.twei3131.service.Students;
 import com.twei3131.service.Teacheres;
 
 public class TeacherController extends Controller {
 	Teacheres teacheres = new Teacheres();
+	Students students = new Students();
 	
 	public void index(){
 		render("/teacher/teacher.jsp");
@@ -159,6 +161,15 @@ public class TeacherController extends Controller {
 		String subjectId = getPara("subjectId");
 		String teacherId = getPara("teacherId");
 		
+		teacheres.unlockState(teacherId, subjectId);//更改课程状态
 		
+		teacheres.unlockStuScanState(teacherId);//解除学生扫描锁定状态
+		
+		students.updateStuState(teacherId, "xk");//更改部分学生上课状态
+		
+		setAttr("name", "放学");
+		setAttr("href", "javascript:void(0)");
+		
+		render("/teacher/qrcodeNext.jsp");
 	}
 }
