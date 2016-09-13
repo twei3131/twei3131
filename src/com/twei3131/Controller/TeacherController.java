@@ -28,6 +28,14 @@ public class TeacherController extends Controller {
 		String subjectId = getPara("subjectId");
 		String groupId = getPara("groupId");
 		
+		//如果用户已登录
+		if (getSessionAttr("username") != null || getSessionAttr("password") != null || getSessionAttr("url") == null) {
+			setAttr("errcode", "000");
+			setAttr("url", getSessionAttr("url"));
+			renderJson();
+		}
+		
+		//如果数据为空
 		if (teacherId.equals("") || password.equals("") || subjectId.equals("") || groupId.equals("")) {
 			renderError(500);
 		}
@@ -56,6 +64,7 @@ public class TeacherController extends Controller {
 			scan.setStudentInfo(list, teacherId, subjectId);
 			setAttr("errcode", "000");
 			setAttr("url", "www.baidu.com?subjectId="+subjectId+"&teacherId="+teacherId);
+			setSessionAttr("url", "www.baidu.com?subjectId="+subjectId+"&teacherId="+teacherId);
 			renderJson();
 		}
 	}

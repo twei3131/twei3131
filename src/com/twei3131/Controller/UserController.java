@@ -67,6 +67,8 @@ public class UserController extends Controller {
 				//返回用户名和密码
 				setAttr("username", username);
 				setAttr("password", password);
+				setSessionAttr("username", username);
+				setSessionAttr("password", password);
 				render("/teacher/teacher.jsp");
 			}
 		}else{

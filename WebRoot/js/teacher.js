@@ -78,9 +78,8 @@ function sub(){
 		}else if(data.errcode == "100"){
 			alert("不能重复");
 		}else if(data.errcode = "000"){
-			var url = "/teacher/qrcode.jsp";
-			window.sessionStorage['qrcodeUrl'] = data.url; 
-			window.location = url;
+			window.localStorage['qrcodeUrl'] = data.url; 
+			window.location = "/teacher/qrcode.jsp";
 		}
 	});
 }
