@@ -41,6 +41,12 @@ function getGroupIds(){
 	$.post("/teacher/getGroupId",{"username":localStorage['username'],"subjectId":$("#subId option:selected").val()},function(data){
 		if(JSON.stringify(data) == '[]'){
 			$("#gpId").html('<option>无</option>');
+		}else{
+			var i = 0;
+			var datas = "";
+			$.each(data,function(){
+				
+			});
 		}
 	});
 }
