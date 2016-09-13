@@ -97,7 +97,7 @@ public class TeacherController extends Controller {
 					flag = false;
 				}
 			}
-			
+
 			if (flag == true) {
 				Map<String, String> map = new HashMap<String,String>();
 				map.put("groupId", list.get(i).getStr("groupId"));
