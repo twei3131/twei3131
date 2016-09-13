@@ -46,4 +46,8 @@ public class TeacherController extends Controller {
 			render("/teacher/qrcode.jsp");
 		}
 	}
+	
+	public void img(){
+		render("/user/login.jsp");
+	}
 }

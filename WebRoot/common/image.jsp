@@ -20,9 +20,8 @@
 
 	// 在内存中创建图象
 	// 通过这里可以修改图片大小
-	int width = 85, height = 23;
-	BufferedImage image = new BufferedImage(width, height,
-			BufferedImage.TYPE_INT_RGB);
+	int width = 180, height = 70;
+	BufferedImage image = new BufferedImage(width, height,BufferedImage.TYPE_INT_RGB);
 
 	// 获取图形上下文
 	// g相当于笔
@@ -37,7 +36,7 @@
 	g.fillRect(0, 0, width, height);
 
 	//设定字体
-	g.setFont(new Font("黑体", Font.PLAIN, 18));
+	g.setFont(new Font("黑体", Font.PLAIN, 38));
 
 	//画边框
 	g.setColor(Color.BLUE);
@@ -71,7 +70,7 @@
 		// 将认证码显示到图象中
 		g.setColor(new Color(20 + random.nextInt(110), 20 + random
 				.nextInt(110), 20 + random.nextInt(110)));//调用函数出来的颜色相同，可能是因为种子太接近，所以只能直接生成
-		g.drawString(rand, 16 * i + 6, 19);
+		g.drawString(rand, 29 * i + 6, 50);
 	}
 
 	// 将认证码存入SESSION
