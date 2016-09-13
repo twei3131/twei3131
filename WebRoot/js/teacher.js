@@ -13,6 +13,7 @@ window.onload = function(){
 	},30000);
 }
 
+//获取课程
 function aja(){
 	if(window.localStorage['username'] != null && window.localStorage['password'] != null){
 		$.post("/teacher/getInfo",{"username":localStorage['username'],"password":localStorage['password']},function(data){
@@ -29,6 +30,7 @@ function aja(){
 	}
 }
 
+//设置localStorage
 function setKey(){
 	var username = $("#username").text();
 	var password = $("#password").text();
