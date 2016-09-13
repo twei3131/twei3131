@@ -78,4 +78,12 @@ public class Teacheres {
 		Boolean flag = subjectinfo.update();
 		return flag;
 	}
+	
+	/*
+	 * ¸ü¸Ä¿Î³Ì×´Ì¬
+	 */
+	public boolean unlockState(String teacherId,String subjectId){
+		
+		return true;
+	}
 }
