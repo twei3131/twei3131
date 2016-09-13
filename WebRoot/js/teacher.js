@@ -34,13 +34,13 @@ function aja(){
 //监听select
 function listenSelect(){
 	$("select").on('click',function(){
-		getGroupId();
+		getGroupIds();
 	});
 }
 
 //获取组编号
-function getGroupId(){
-	$.post("",{},function(data){
+function getGroupIds(){
+	$.post("/teacher/getGroupId",{"username":localStorage['username'],"subjectId":$("#subId option:selected").text()},function(data){
 		
 	});
 }

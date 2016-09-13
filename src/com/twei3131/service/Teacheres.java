@@ -59,6 +59,11 @@ public class Teacheres {
 	 * »ñÈ¡×é±àºÅ
 	 */
 	public List<Record> getGpId(String teacherId,String subjectId){
-		return null;
+		String sql = "SELECT a.groupId,a.groupName FROM  subjecttoteacher b JOIN `subject` c " +
+					"ON b.subjectId = c.subjectId JOIN grouptosubject d ON c.subjectId = d.subjectId "+ 
+				"JOIN grouptosubject e ON d.groupId = e.groupId JOIN `group` a ON e.groupId = a.groupId WHERE "+
+					" b.subjectId = '"+subjectId+"' AND b.teacherId = '"+teacherId+"'";
+		List<Record> list = Db.find(sql);
+		return list;
 	}
 }
