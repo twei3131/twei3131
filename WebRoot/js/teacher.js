@@ -14,10 +14,26 @@ window.onload = function(){
 
 function aja(){
 	if(window.localStorage['username'] != null && window.localStorage['password'] != null){
-		$.post("",{"username":localStorage['username'],"password":localStorage['password']},function(data){
-			
+		$.post("/teacher/getInfo",{"username":localStorage['username'],"password":localStorage['password']},function(data){
+			var username = $("#username").text();
+			var password = $("#password").text();
+			if(localStorage['username'] == null && localStorage['password'] == null){
+				localStorage['username'] = username;
+				localStorage['password'] = password;
+			}
+
 		});
 	}else{
 		window.location="/user/login.jsp";
 	}
+}
+
+function sub(){
+	var username = $("#username").text();
+	var password = $("#password").text();
+	var subjectId = $("#subId").val();
+	var groupId = $("#gpId").val();
+	$.post("/teacher/initQRCode",{"teacherId":username,"password":password,"subjectId":subjectId,"groupId":groupId},function(data){
+		
+	});
 }

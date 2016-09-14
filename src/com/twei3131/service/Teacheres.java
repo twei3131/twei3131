@@ -1,9 +1,11 @@
 package com.twei3131.service;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 import com.jfinal.plugin.activerecord.Db;
+import com.jfinal.plugin.activerecord.Record;
 import com.twei3131.common.model.Teacher;
 
 public class Teacheres {
@@ -40,5 +42,17 @@ public class Teacheres {
 		String sql = "SELECT COUNT(*) FROM subjectinfo WHERE teacherId = '"+teacherId+"' AND subjectId = '"+subjectId+"'";
 		long i = Db.queryLong(sql);
 		return i;
+	}
+	
+	/*
+	 * 根据教师编号获取课程编号,课程名
+	 */
+	public List<Record> getSubjectIdByUserId(String userId){
+		String sql = "SELECT a.subjectId,b.subjectName FROM subjecttoteacher "+
+				" a JOIN `subject` b ON a.subjectId = b.subjectId WHERE a.teacherId = ?";
+		
+		List<Record> list = Db.find(sql, userId);
+		
+		return list;
 	}
 }

@@ -11,11 +11,13 @@
 	<div id="bott">
 			<ul>
 				<li><div id="teaname">夏孝云</div></li>
-				<li><label>课程编号:</label><select name="subjectId"></select></li>
-				<li><label>课组编号:</label><select name="groupId"></select></li>
-				<a href="/teacher/initQRCode?teacherId=tea0002&password=13&subjectId=sub0003&groupId=gp0002">生成二维码</a>
+				<li><label>课程编号:</label><select id="subId" name="subjectId"></select></li>
+				<li><label>课组编号:</label><select id="gpId" name="groupId"></select></li>
+				<a id="qrcod" href="javascript:sub()">生成二维码</a>
 			</ul>
 		</div>
+		<div style="display:none" id="username">${username}</div>
+		<div style="display:none" id="password">${password}</div>
 	<script type="text/javascript" src="/lib/jquery-3.1.0.min.js"></script>
 	<script type="text/javascript" src="/js/teacher.js"></script>
 </body>
