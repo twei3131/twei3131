@@ -10,7 +10,7 @@
 <body>
 	<div id="form">
 		<div>登录窗体</div>
-		<form action="" method="post">
+		<form action="/user/login" method="post">
 			<ul>
 				<li><label>用户名：</label><input type="text" name="username" placeholder="用户名"></li>
 				<li><label>密	码：</label><input style="position:relative;left:30px;" type="text" name="password" placeholder="密码"></li>

@@ -47,4 +47,11 @@ public class UserController extends Controller {
 			}
 		}
 	}
+	
+	/*
+	 * µÇÂ¼½Ó¿Ú
+	 */
+	public void login(){
+		
+	}
 }
