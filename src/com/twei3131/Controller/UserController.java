@@ -1,5 +1,8 @@
 package com.twei3131.Controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.jfinal.core.Controller;
 import com.twei3131.service.Users;
 
@@ -52,6 +55,24 @@ public class UserController extends Controller {
 	 * 登录接口
 	 */
 	public void login(){
+		String username = getPara("username");
+		String password = getPara("password");
+		String vcode = getPara("vcode");
 		
+		//判断用户的合法性
+		Boolean isUser = user.isUserByUserId(username, password);
+		
+		if (isUser) {
+			if (user.judgeIndentityByUserId(username).equals("teacher")) {
+				//返回用户名和密码
+				setAttr("username", username);
+				setAttr("password", password);
+				render("/teacher/teacher.jsp");
+			}
+		}else{
+			Map<String, String> map = new HashMap<String,String>();
+			map.put("errcode", "404");
+			renderJson(map);
+		}
 	}
 }

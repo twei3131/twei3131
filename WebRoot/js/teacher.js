@@ -1,4 +1,5 @@
 window.onload = function(){
+	aja();
 	var i = 0;
 	setInterval(function(){
 		i++;
@@ -9,7 +10,6 @@ window.onload = function(){
 			$(this).css({"background-image":"url(./../img/register"+i+".jpg)"});
 		})
 	},30000);
-	aja();
 }
 
 function aja(){
@@ -18,6 +18,6 @@ function aja(){
 			
 		});
 	}else{
-		$.get("");
+		window.location="/user/login.jsp";
 	}
 }
