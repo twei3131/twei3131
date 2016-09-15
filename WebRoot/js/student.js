@@ -6,10 +6,10 @@ window.onload = function(){
 function setKey(){
 	var username = $("#username").text();
 	var password = $("#password").text();
-	if(localStorage['username'] == null && localStorage['password'] == null){
+	if(localStorage['stuname'] == null && localStorage['pass'] == null){
 		if(username != "" || password != ""){
-			localStorage['username'] = username;
-			localStorage['password'] = password;
+			localStorage['stuname'] = username;
+			localStorage['pass'] = password;
 		}else{
 			window.location = "/user/login.jsp";
 		}

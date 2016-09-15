@@ -74,6 +74,15 @@ public class UserController extends Controller {
 				
 				render("/teacher/teacher.jsp");
 			}
+			
+			if(user.judgeIndentityByUserId(username) == "student"){
+				setAttr("stuname", username);
+				setAttr("pass", password);
+				
+				setSessionAttr("status", "200");
+				
+				render("/teacher/teacher.jsp");
+			}
 		}else{
 			Map<String, String> map = new HashMap<String,String>();
 			map.put("errcode", "404");

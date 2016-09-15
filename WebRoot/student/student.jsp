@@ -12,6 +12,8 @@
 <body>
 	<div id="clock" class="purple big"></div>
 	<a id="btn" href="#">${state}</a>
+	<div id="username"></div>
+	<div id="password"></div>
 	<script type="text/javascript" src="/lib/jquery-3.1.0.min.js"></script>
 	<script type="text/javascript" src="/lib/percircle/js/percircle.min.js"></script>
 	<script type="text/javascript" src="/js/student.js"></script>
