@@ -12,6 +12,7 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
 import com.jfinal.render.ViewType;
 import com.twei3131.Controller.IndexController;
+import com.twei3131.Controller.StudentController;
 import com.twei3131.Controller.TeacherController;
 import com.twei3131.Controller.TestController;
 import com.twei3131.Controller.UserController;
@@ -36,6 +37,7 @@ public class MainConfig extends JFinalConfig {
 		me.add("/user",UserController.class);
 		me.add("/test",TestController.class);
 		me.add("/teacher",TeacherController.class);
+		me.add("/student",StudentController.class);
 	}
 
 	@Override
