@@ -14,6 +14,7 @@
 	<a id="btn" href="#">${state}</a>
 	<script type="text/javascript" src="/lib/jquery-3.1.0.min.js"></script>
 	<script type="text/javascript" src="/lib/percircle/js/percircle.min.js"></script>
+	<script type="text/javascript" src="/js/student.js"></script>
 	<script type="text/javascript">
 		$(function(){
 			 $("#clock").percircle({
