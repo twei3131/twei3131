@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div id="clock" class="purple big"></div>
-	<center><a id="btn" href="#">${state}</a></center>
+	<a id="btn" href="#">${state}</a>
 	<script type="text/javascript" src="/lib/jquery-3.1.0.min.js"></script>
 	<script type="text/javascript" src="/lib/percircle/js/percircle.min.js"></script>
 	<script type="text/javascript">

@@ -58,7 +58,7 @@ public class TeacherController extends Controller {
 			List<Student> list = scan.getStudentInfoBySubjectId(teacherId, subjectId, groupId);
 			scan.setStudentInfo(list, teacherId, subjectId);//数据库操作
 			scan.setSubjectInfo(teacherId, subjectId);//数据库操作
-			String url = "www.baidu.com?subjectId="+subjectId+"&teacherId="+teacherId;
+			String url = "/student/getState?subjectId="+subjectId+"&teacherId="+teacherId;
 			setAttr("errcode", "000");
 			setAttr("url", url);			
 			renderJson();
