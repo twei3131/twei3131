@@ -21,12 +21,17 @@ public class StudentController extends Controller {
 		setSessionAttr("subId", subjectId);
 		setSessionAttr("teaId", teacherId);
 		
-		if (count == 1) {
-			setAttr("state", "确认上课");
-			index();
+		//判断是否登录
+		if (getSessionAttr("status") == null) {
+			redirect("/user/login.jsp");
 		}else{
-			setAttr("state", "确认下课");
-			index();
+			if (count == 1) {
+				setAttr("state", "确认上课");
+				index();
+			}else{
+				setAttr("state", "确认下课");
+				index();
+			}
 		}
 	}
 }

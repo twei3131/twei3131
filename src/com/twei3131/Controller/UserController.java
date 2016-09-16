@@ -76,12 +76,11 @@ public class UserController extends Controller {
 			}
 			
 			if(user.judgeIndentityByUserId(username) == "student"){
-				setAttr("stuname", username);
-				setAttr("pass", password);
 				
 				setSessionAttr("status", "200");
+				String url = "/student/getState?subjectId="+getSessionAttr("subId").toString()+"&teacherId="+getSessionAttr("teaId").toString();
 				
-				render("/student/getState?subjectId="+getSessionAttr("subId")+"&teacherId="+getSessionAttr("teaId"));
+				redirect(url);//页面重定向
 			}
 		}else{
 			Map<String, String> map = new HashMap<String,String>();
