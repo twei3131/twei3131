@@ -128,7 +128,9 @@ public class Scan {
 		 Db.batchSave(tempsigns, students.size());
 	}
 	
-	//将相应的课程信息插入到库表中
+	/*
+	 * 将相应的课程信息插入到库表中
+	 */
 	public void setSubjectInfo(String teacherId,String subjectId){
 		Subjectinfo subjectinfo = new Subjectinfo();
 		Long id = Db.queryLong("select count(*) from subjectinfo") + 1;//获取主键
@@ -137,5 +139,20 @@ public class Scan {
 		subjectinfo.setTeacherId(teacherId);
 		subjectinfo.setState("即将开始");
 		subjectinfo.save();
+	}
+	
+	/*
+	 * student
+	 */
+	//判断学生扫描的合法性
+	public boolean isExt(String studentId,String subjectId,String teacherId){
+		
+		//获取身份
+		String indentity = user.judgeIndentityByUserId(studentId);
+		
+		//获取上课内容
+		Tempsign tempsign = Tempsign.dao.findById(studentId);
+		
+		return true;
 	}
 }
