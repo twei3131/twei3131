@@ -71,6 +71,7 @@ public class UserController extends Controller {
 				setAttr("password", password);
 				
 				setSessionAttr("status", "200");
+				setSessionAttr("username", username);
 				
 				render("/teacher/teacher.jsp");
 			}
