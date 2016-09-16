@@ -34,6 +34,7 @@ public class StudentController extends Controller {
 		}else{
 			if (count == 1) {
 				setAttr("state", "确认上课");
+				setAttr("href", "/student/sk");
 				index();
 			}else{
 				setAttr("state", "确认下课");
