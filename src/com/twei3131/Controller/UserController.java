@@ -81,7 +81,7 @@ public class UserController extends Controller {
 				
 				setSessionAttr("status", "200");
 				
-				render("/teacher/teacher.jsp");
+				render("/student/getState?subjectId="+getSessionAttr("subId")+"&teacherId="+getSessionAttr("teaId"));
 			}
 		}else{
 			Map<String, String> map = new HashMap<String,String>();

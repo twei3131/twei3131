@@ -16,7 +16,11 @@ public class StudentController extends Controller {
 		String sql = "select count(*) from subjectInfo "+ 
 				"where teacherId = '"+teacherId+"' and subjectId = '"+subjectId+"' and state = '即将开始'";
 		long count = Db.queryLong(sql);
-
+		
+		//设置session
+		setSessionAttr("subId", subjectId);
+		setSessionAttr("teaId", teacherId);
+		
 		if (count == 1) {
 			setAttr("state", "确认上课");
 			index();
