@@ -2,6 +2,8 @@ package com.twei3131.Controller;
 
 import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Db;
+import com.twei3131.common.model.Subjectinfo;
+import com.twei3131.common.model.Tempsign;
 import com.twei3131.service.Scan;
 import com.twei3131.service.Students;
 
@@ -44,16 +46,40 @@ public class StudentController extends Controller {
 	 * 学生点击上课按钮
 	 */
 	public void sk(){
+		String stuId = getSessionAttr("username").toString();
+		String teaId = getSessionAttr("teaId").toString();
+		String subId = getSessionAttr("subId");
+		
+		Boolean flag = false;
+		
 		//学生扫描的合法性
-		Boolean isLegal = scan.isExt(getSessionAttr("username").toString(), getSessionAttr("teaId").toString());
+		Boolean isLegal = scan.isExt(stuId, teaId);
 		
 		//是否重复扫描
-		Boolean isReScan = scan.isRePlay(getSessionAttr("username").toString(), getSessionAttr("teaId").toString());
+		Boolean isReScan = scan.isRePlay(stuId, teaId);
 		
-		if (isLegal && !isReScan) {
-			
+		if (!isLegal) {
+			setAttr("errcode", "100");
+			renderJson();
 		}
 		
+		if (isReScan) {
+			setAttr("errcode", "200");
+			renderJson();
+		}
 		
+		if (isLegal && !isReScan) {
+			Subjectinfo subjectinfo = Subjectinfo.dao.findFirst("select * from subjectInfo where teacherId = '" + teaId + "' and subjectId='"+subId + "'");
+			Tempsign tempsign = Tempsign.dao.findById(stuId, teaId);
+			tempsign.setState(students.getStuStateByClassState("stuFirst", subjectinfo.getState(), stuId, teaId));
+			tempsign.setScanState("false");
+			tempsign.setHostname(getRequest().getLocalName());
+			flag = tempsign.update();
+			if (flag == true) {
+				
+			}else{
+				renderError(500);
+			}
+		}
 	}
 }
