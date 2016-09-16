@@ -71,7 +71,6 @@ public class UserController extends Controller {
 				setAttr("password", password);
 				
 				setSessionAttr("status", "200");
-				setSessionAttr("username", username);
 				
 				render("/teacher/teacher.jsp");
 			}
@@ -79,6 +78,7 @@ public class UserController extends Controller {
 			if(user.judgeIndentityByUserId(username) == "student"){
 				
 				setSessionAttr("status", "200");
+				setSessionAttr("username", username);
 				String url = "/student/getState?subjectId="+getSessionAttr("subId").toString()+"&teacherId="+getSessionAttr("teaId").toString();
 				
 				redirect(url);//页面重定向

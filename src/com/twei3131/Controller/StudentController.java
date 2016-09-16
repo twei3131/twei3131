@@ -2,8 +2,13 @@ package com.twei3131.Controller;
 
 import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Db;
+import com.twei3131.service.Scan;
+import com.twei3131.service.Students;
 
 public class StudentController extends Controller {
+	Students students = new Students();
+	Scan scan = new Scan();
+	
 	public void index(){
 		render("/student/student.jsp");
 	}
@@ -33,5 +38,22 @@ public class StudentController extends Controller {
 				index();
 			}
 		}
+	}
+	
+	/*
+	 * 学生点击上课按钮
+	 */
+	public void sk(){
+		//学生扫描的合法性
+		Boolean isLegal = scan.isExt(getSessionAttr("username").toString(), getSessionAttr("teaId").toString());
+		
+		//是否重复扫描
+		Boolean isReScan = scan.isRePlay(getSessionAttr("username").toString(), getSessionAttr("teaId").toString());
+		
+		if (isLegal && !isReScan) {
+			
+		}
+		
+		
 	}
 }
