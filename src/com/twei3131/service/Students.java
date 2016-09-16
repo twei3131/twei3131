@@ -1,10 +1,27 @@
 package com.twei3131.service;
 
+import com.twei3131.common.model.Tempsign;
+
 public class Students {
 	//根据课程状态改变学生上课状态
-	public String getStuStateByClassState(String scanState,String classState){
+	public String getStuStateByClassState(String scanState,String classState,String studentId,String teacherId){
 		
 		String studentState = "";//初始化学生上课状态
-		return "";
+		if (scanState == "stuFirst") {
+			if (classState == "即将开始") {
+				studentState = "正常";
+			}else if (classState == "上课中") {
+				studentState = "迟到";
+			}else if (classState == "下课") {
+				Tempsign tempsign = Tempsign.dao.findById(studentId,teacherId);
+				if (tempsign.getState().equals("迟到")) {
+					studentState = "迟到下课";
+				}else{
+					studentState = "正常下课";
+				}
+			}
+		}
+
+		return studentState;
 	}
 }
