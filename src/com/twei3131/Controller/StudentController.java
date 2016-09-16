@@ -70,15 +70,17 @@ public class StudentController extends Controller {
 		}
 		
 		if (isLegal && !isReScan) {
+			
 			Subjectinfo subjectinfo = Subjectinfo.dao.findFirst("select * from subjectInfo where teacherId = '" + teaId + "' and subjectId='"+subId + "'");
 			Tempsign tempsign = Tempsign.dao.findById(stuId, teaId);
-			System.out.println(students.getStuStateByClassState("stuFirst", subjectinfo.getState(), stuId, teaId));
+	
 			tempsign.setState(students.getStuStateByClassState("stuFirst", subjectinfo.getState(), stuId, teaId));
 			tempsign.setScanState("false");
-			tempsign.setHostname(getRequest().getLocalName());
+			tempsign.setHostname(getRequest().getRemoteHost());
 			flag = tempsign.update();
+			
 			if (flag == true) {
-				
+				renderJavascript("alert(1)");
 			}else{
 				renderError(500);
 			}
