@@ -7,6 +7,7 @@ import java.util.List;
 import com.jfinal.plugin.activerecord.Db;
 import com.twei3131.common.model.Student;
 import com.twei3131.common.model.Subject;
+import com.twei3131.common.model.Subjectinfo;
 import com.twei3131.common.model.Teacher;
 import com.twei3131.common.model.Tempsign;
 
@@ -125,5 +126,16 @@ public class Scan {
 			 tempsigns.add(tempsign);
 		 }
 		 Db.batchSave(tempsigns, students.size());
+	}
+	
+	//将相应的课程信息插入到库表中
+	public void setSubjectInfo(String teacherId,String subjectId){
+		Subjectinfo subjectinfo = new Subjectinfo();
+		Long id = Db.queryLong("select count(*) from subjectinfo") + 1;//获取主键
+		subjectinfo.setSubjectInfoId(id.intValue());
+		subjectinfo.setSubjectId(subjectId);
+		subjectinfo.setTeacherId(teacherId);
+		subjectinfo.setState("即将开始");
+		subjectinfo.save();
 	}
 }
