@@ -13,8 +13,8 @@
 		<div id="title">扫描二维码</div>
 	</div>
 	<div id="qrcode"></div>
-	<a href="#">上课</a>
 	<div id="chacter">请扫描上方二维码</div>
+	<a href="#">上课</a>
 	<script type="text/javascript" src="/lib/jquery-3.1.0.min.js"></script>
 	<script type="text/javascript" src="/lib/qrcode/jquery.qrcode.js"></script>
 	<script type="text/javascript" src="/lib/qrcode/qrcode.js"></script>
