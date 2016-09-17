@@ -172,7 +172,7 @@ public class Scan {
 		String lockState = tempsign.getScanState();
 		
 		//ÅÐ¶ÏËø¶¨×´Ì¬
-		if (lockState == "true") {
+		if (lockState.equals("false")) {
 			flag = true;
 		}
 		

@@ -58,18 +58,16 @@ public class StudentController extends Controller {
 		
 		// «∑Ò÷ÿ∏¥…®√Ë
 		Boolean isReScan = scan.isRePlay(stuId, teaId);
-		
+
 		if (!isLegal) {
 			setAttr("errcode", "100");
 			renderJson();
 		}
-		
-		if (isReScan) {
+		else if (isReScan) {
 			setAttr("errcode", "200");
 			renderJson();
 		}
-		
-		if (isLegal && !isReScan) {
+		else if (isLegal && !isReScan) {
 			
 			Subjectinfo subjectinfo = Subjectinfo.dao.findFirst("select * from subjectInfo where teacherId = '" + teaId + "' and subjectId='"+subId + "'");
 			Tempsign tempsign = Tempsign.dao.findById(stuId, teaId);
@@ -80,7 +78,7 @@ public class StudentController extends Controller {
 			flag = tempsign.update();
 			
 			if (flag == true) {
-				renderJavascript("alert(1)");
+				renderJavascript("<script>alert(1)</script>");
 			}else{
 				renderError(500);
 			}
