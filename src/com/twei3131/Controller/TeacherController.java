@@ -135,15 +135,20 @@ public class TeacherController extends Controller {
 	 * 教师点击上课按钮
 	 */
 	public void getSub(){
-		String subjectId = getPara(0);
-		String teacherId = getPara(1);
+		String subjectId = getPara("subjectId");
+		String teacherId = getPara("teacherId");
 		
 		//修改课程状态
-		String sql = "select * from subjectInfo where teacherId = '"+teacherId+"' and subjectId='"+subjectId+"'and state='即将开始'";
-		Subjectinfo subjectinfo = Subjectinfo.dao.findFirst(sql);
-		subjectinfo.setState("上课中");
-		subjectinfo.update();
+		boolean fla = teacheres.lockState(teacherId, subjectId);
 		
-		render("/teacher/qrcode.jsp");
+		//判断是否修改成功
+		if (fla) {
+			setAttr("name","下课");
+			setAttr("href","javascript:void(0)");
+			render("/teacher/qrcodeNext.jsp");
+		}else{
+			setAttr("err", "500");
+			render("/teacher/qrcode.jsp");
+		}
 	}
 }

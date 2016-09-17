@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Record;
+import com.twei3131.common.model.Subjectinfo;
 import com.twei3131.common.model.Teacher;
 
 public class Teacheres {
@@ -65,5 +66,16 @@ public class Teacheres {
 					" b.subjectId = '"+subjectId+"' AND b.teacherId = '"+teacherId+"'";
 		List<Record> list = Db.find(sql);
 		return list;
+	}
+	
+	/*
+	 * 修改课程状态
+	 */
+	public Boolean lockState(String teacherId,String subjectId){
+		String sql = "select * from subjectInfo where teacherId = '"+teacherId+"' and subjectId='"+subjectId+"'and state='即将开始'";
+		Subjectinfo subjectinfo = Subjectinfo.dao.findFirst(sql);
+		subjectinfo.setState("上课中");
+		Boolean flag = subjectinfo.update();
+		return flag;
 	}
 }

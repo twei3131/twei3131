@@ -121,7 +121,7 @@ public class Scan {
 			 tempsign.setTeacherId(teacherId);
 			 tempsign.setSubjectId(subjectId);
 			 tempsign.setState("Î´µ½");
-			 tempsign.setScanState("false");
+			 tempsign.setScanState("true");
 			 tempsign.setHostname("");
 			 tempsigns.add(tempsign);
 		 }
