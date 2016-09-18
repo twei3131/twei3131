@@ -257,7 +257,7 @@
                     </li> 
                      
                      <li>
-                        <a href="#"><i class="fa fa-sitemap"></i> Charts<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-sitemap"></i> 录入管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="form.html">学生录入管理</a>

@@ -7,7 +7,7 @@ import com.twei3131.common.model.Signerror;
 
 public class BacgrouController extends Controller {
 	public void index(){
-		render("/bacgrou/main.jsp");
+		render("/bacgrou/index.jsp");
 	}
 	
 	public void audit(){
