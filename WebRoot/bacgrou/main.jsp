@@ -252,32 +252,32 @@
                         <a class="active-menu" href="/bacgrou/main.jsp"><i class="fa fa-dashboard"></i> 主页</a>
                     </li>
                     <li>
-                        <a href="/bacgrou/table.html"><i class="fa fa-desktop"></i> 班级考核查询</a>
+                        <a href="/bacgrou/table.jsp"><i class="fa fa-desktop"></i> 班级考核查询</a>
                     </li> 
 					 
 					 <li>
                         <a href="#"><i class="fa fa-sitemap"></i> Charts<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="form.html">学生录入管理</a>
+                                <a href="/bacgrou/form.jsp">学生录入管理</a>
                             </li>
                             <li>
-                                <a href="form.html">课程录入管理</a>
+                                <a href="/bacgrou/form.jsp">课程录入管理</a>
                             </li>
                             <li>
-                                <a href="form.html">班级录入管理</a>
+                                <a href="/bacgrou/form.jsp">班级录入管理</a>
                             </li>
                             <li>
-                                 <a href="form.html">教师录入管理</a>
+                                 <a href="/bacgrou/form.jsp">教师录入管理</a>
                             </li>
                             <li>
-                                 <a href="form.html">选修课/体育课录入管理</a>
+                                 <a href="/bacgrou/form.jsp">选修课/体育课录入管理</a>
                             </li>
                             <li>
-                                <a href="form.html">课表管理</a>
+                                <a href="/bacgrou/form.jsp">课表管理</a>
                             </li>
                              <li>
-                                <a href="form.html">虚拟班级管理</a>
+                                <a href="/bacgrou/form.jsp">虚拟班级管理</a>
                             </li>
 							</ul>
 						</li>	
@@ -287,7 +287,7 @@
                     </li> -->
                     
                     <li>
-                        <a href="table.html"><i class="fa fa-table"></i> 学生签到情况审核管理</a>
+                        <a href="/bacgrou/table.jsp"><i class="fa fa-table"></i> 学生签到情况审核管理</a>
                     </li>
                    <!--  <li>
                         <a href="form.html"><i class="fa fa-edit"></i> Forms </a>
