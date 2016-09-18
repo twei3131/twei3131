@@ -3,6 +3,7 @@ package com.twei3131.Controller;
 import java.util.List;
 
 import com.jfinal.core.Controller;
+import com.twei3131.common.model.Classes;
 import com.twei3131.common.model.Signerror;
 import com.twei3131.service.Users;
 
@@ -16,16 +17,23 @@ public class BacgrouController extends Controller {
 		String password = getPara("password");
 		
 		if (username.equals("") || password.equals("")) {
-			renderHtml("<script>alert('用户名或密码为空')</script>");
+			renderError(404);
 		}else if (username.equals("14302189") || password.equals("170410")) {
 			setSessionAttr("root", "max");
 			render("/bacgrou/main.jsp");
 		}else {
 			Users users = new Users();
 			if (users.judgeIndentityByUserId(username).equals("instructor")) {
-				
+				if (users.isUserByUserId(username, password)) {
+					List<Classes> classes = Classes.dao.find("select * from classes where instructorId = ?",username);
+					setAttr("classes", classes);
+					setSessionAttr("userId", username);
+					render("/bacgrou/main.jsp");
+				}else{
+					
+				}
 			}else {
-				
+				renderError(500);
 			}
 		}
 
