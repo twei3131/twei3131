@@ -10,6 +10,11 @@ public class BacgrouController extends Controller {
 		render("/bacgrou/index.jsp");
 	}
 	
+	private void login() {
+		
+
+	}
+	
 	public void audit(){
 		String instructorId = getPara("instructorId");
 		String subjectId = getPara("subjectId");
