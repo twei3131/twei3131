@@ -358,17 +358,15 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Rendering engine</th>
-                                            <th>Browser</th>
-                                            <th>Platform(s)</th>
-                                            <th>Engine version</th>
-                                            <th>CSS grade</th>
+                                            <th>学号</th><th>教师编号</th><th>课程编号</th><th>状态</th><th>审核状态</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="odd gradeX">
-                                            <td>Trident</td><td>Internet Explorer 4.0</td><td>Win 95+</td><td class="center">4</td><td class="center">X</td>
-                                        </tr>
+                                        <c:forEach items="${context}" var="list">
+	                                        <tr class="odd gradeX">
+	                                            <td>${list.studentId}</td><td>${list.teacherId}</td><td>${list.subjectId}</td><td class="center">${list.state}</td><td class="center">${list.auditState}</td>
+	                                        </tr>
+                                        </c:forEach>	
                                     </tbody>
                                 </table>
                             </div>

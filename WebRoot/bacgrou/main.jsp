@@ -252,7 +252,7 @@
                         <a class="active-menu" href="/bacgrou/main.jsp"><i class="fa fa-dashboard"></i> 主页</a>
                     </li>
                     <li>
-                        <a href="/bacgrou/table.jsp"><i class="fa fa-desktop"></i> 班级考核查询</a>
+                        <a href="/bacgrou/audit?instructorId=ins0001&subjectId=sub0003&classId=20001"><i class="fa fa-desktop"></i> 班级考核查询</a>
                     </li> 
 					 
 					 <li>
