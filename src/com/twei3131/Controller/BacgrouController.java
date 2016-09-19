@@ -64,4 +64,8 @@ public class BacgrouController extends Controller {
 		
 		render("/bacgrou/table.jsp");
 	}
+	
+	public void getStuInfo(){
+		
+	}
 }

@@ -18,6 +18,12 @@
 <!--    <link href='http://fonts.useso.com/css?family=Open+Sans' rel='stylesheet' type='text/css' /> -->
      <!-- TABLE STYLES-->
     <link href="/bacgrou/assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <style type="text/css">
+    	a{
+    		text-decoration:none;
+    		color:black
+    	}
+    </style>
 </head>
 <body>
 	<div id="wrapper">
@@ -333,7 +339,7 @@
                                     <tbody>
                                         <c:forEach items="${context}" var="list">
 	                                        <tr class="odd gradeX">
-	                                            <td>${list.studentId}</td><td>${list.teacherId}</td><td>${list.subjectId}</td><td class="center">${list.state}</td><td class="center">${list.auditState}</td>
+	                                            <td><a href="javascript:getStuInfo(${list.studentId})">${list.studentId}</a></td><td>${list.teacherId}</td><td>${list.subjectId}</td><td class="center">${list.state}</td><td class="center">${list.auditState}</td>
 	                                        </tr>
                                         </c:forEach>	
                                     </tbody>
@@ -370,6 +376,11 @@
             $(document).ready(function () {
                 $('#dataTables-example').dataTable();
             });
+            function getStuInfo(stuId){
+            	$.get("/bacgrou/getStuInfo",{"username":stuId},function(data){
+            		
+            	});
+            }
     </script>
          <!-- Custom Js -->
     <script src="/bacgrou/assets/js/custom-scripts.js"></script>
