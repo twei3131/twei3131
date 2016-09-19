@@ -9,6 +9,7 @@ import com.jfinal.kit.JsonKit;
 import com.twei3131.common.model.Classes;
 import com.twei3131.common.model.Signerror;
 import com.twei3131.common.model.Student;
+import com.twei3131.common.model.Subject;
 import com.twei3131.common.model.Teacher;
 import com.twei3131.service.Users;
 
@@ -86,6 +87,16 @@ public class BacgrouController extends Controller {
 		Map<String, String> map = new HashMap<String,String>();
 		map.put("tid", teacher.getTeacherId());
 		map.put("tname", teacher.getTeacherName());
+		String json = JsonKit.toJson(map);
+		renderJson(json);
+	}
+	
+	public void getSubInfo(){
+		String subId = getPara("subId");
+		Subject subject = Subject.dao.findById(subId);
+		Map<String, String> map = new HashMap<String,String>();
+		map.put("subId", subject.getSubjectId());
+		map.put("subName", subject.getSubjectName());
 		String json = JsonKit.toJson(map);
 		renderJson(json);
 	}
