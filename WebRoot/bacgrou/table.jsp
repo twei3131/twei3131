@@ -252,14 +252,14 @@
                     <li>
                         <a class="active-menu" href="/bacgrou/getMain"><i class="fa fa-dashboard"></i> 主页</a>
                     </li>
-                    <li>
+                     <li>
                         <a href="#"><i class="fa fa-sitemap"></i> 班级考核查询<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-	                        <c:forEach items="${classes}" var="list">
-	                            <li>
-	                                <a href="/bacgrou/audit?instructorId=${userId}&subjectId=sub0003&classId=${list.classId}">${list.name}</a>
-	                            </li>
-	                        </c:forEach> 
+                        <c:forEach items="${classes}" var="list">
+                            <li>
+                                <a href="/bacgrou/audit?instructorId=${userId}&classId=${list.classId}">${list.name}</a>
+                            </li>
+                        </c:forEach> 
 						</ul>
                     </li> 
 					 

@@ -48,12 +48,11 @@ public class BacgrouController extends Controller {
 	
 	public void audit(){
 		String instructorId = getPara("instructorId");
-		String subjectId = getPara("subjectId");
 		String classId = getPara("classId");
 		
 		String sql = "SELECT a.* FROM signerror a JOIN student b ON a.studentId = b.studentId "+
 		" JOIN classes c ON b.classId = c.classId JOIN instructor d ON c.instructorId = d.instructorId "+ 
-		"WHERE d.instructorId='"+instructorId+"' AND c.classId = '"+classId+"' AND a.subjectId = '"+subjectId+"'";
+		"WHERE d.instructorId='"+instructorId+"' AND c.classId = '"+classId+"'";
 		
 		List<Signerror> list = Signerror.dao.find(sql);
 		
