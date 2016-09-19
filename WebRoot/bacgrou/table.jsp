@@ -339,7 +339,11 @@
                                     <tbody>
                                         <c:forEach items="${context}" var="list">
 	                                        <tr class="odd gradeX">
-	                                            <td><a href="javascript:getStuInfo(${list.studentId})">${list.studentId}</a></td><td>${list.teacherId}</td><td>${list.subjectId}</td><td class="center">${list.state}</td><td class="center">${list.auditState}</td>
+	                                            <td><a href="javascript:getStuInfo(${list.studentId})">${list.studentId}</a></td>
+	                                            <td><a href="javascript:getTeaInfos('${list.teacherId}')">${list.teacherId}</a></td>
+	                                            <td>${list.subjectId}</td>
+	                                            <td class="center">${list.state}</td>
+	                                            <td class="center">${list.auditState}</td>
 	                                        </tr>
                                         </c:forEach>	
                                     </tbody>
@@ -378,7 +382,14 @@
             });
             function getStuInfo(stuId){
             	$.get("/bacgrou/getStuInfo",{"username":stuId},function(data){
-            		
+            		var content = "学号:"+data.uid+";姓名:"+data.uname;
+            		alert(content);
+            	});
+            }
+            function getTeaInfos(teaId){
+            	$.get("/bacgrou/getTeaInfo",{"tId":teaId},function(data){
+            		var content = "教师编号:"+data.tid+";教师姓名:"+data.tname;
+            		alert(content);
             	});
             }
     </script>

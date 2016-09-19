@@ -1,10 +1,15 @@
 package com.twei3131.Controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.jfinal.core.Controller;
+import com.jfinal.kit.JsonKit;
 import com.twei3131.common.model.Classes;
 import com.twei3131.common.model.Signerror;
+import com.twei3131.common.model.Student;
+import com.twei3131.common.model.Teacher;
 import com.twei3131.service.Users;
 
 public class BacgrouController extends Controller {
@@ -66,6 +71,22 @@ public class BacgrouController extends Controller {
 	}
 	
 	public void getStuInfo(){
-		
+		String stuId = getPara("username");
+		Student student = Student.dao.findById(stuId);
+		Map<String, String> map = new HashMap<String,String>();
+		map.put("uid", student.getStudentId());
+		map.put("uname", student.getStudentName());
+		String json = JsonKit.toJson(map);
+		renderJson(json);
+	}
+	
+	public void getTeaInfo(){
+		String teaId = getPara("tId");
+		Teacher teacher = Teacher.dao.findById(teaId);
+		Map<String, String> map = new HashMap<String,String>();
+		map.put("tid", teacher.getTeacherId());
+		map.put("tname", teacher.getTeacherName());
+		String json = JsonKit.toJson(map);
+		renderJson(json);
 	}
 }
