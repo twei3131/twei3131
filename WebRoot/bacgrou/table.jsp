@@ -394,7 +394,7 @@
             }
             function getSubInfo(subjectId){
             	$.get("/bacgrou/getSubInfo",{"subId":subjectId},function(data){
-            		var content = "学号:"+data.subId+";姓名:"+data.subName;
+            		var content = "课程编号:"+data.subId+";课程名:"+data.subName;
             		alert(content);
             	});
             }
