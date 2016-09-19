@@ -2,6 +2,7 @@ package com.twei3131.service;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import com.jfinal.plugin.activerecord.Db;
@@ -127,7 +128,7 @@ public class Teacheres {
 		return i>= 0;
 	}
 	
-	public void setSignError(String teacherId){
+	public void setSignError(String teacherId,String subjectId){
 		List<Tempsign> tempsign = Tempsign.dao.find("select * from tempsign where teacherId = ?",teacherId);
 		for(int i = 0;i < tempsign.size();i++){
 			Signerror signerror = new Signerror();
@@ -136,6 +137,8 @@ public class Teacheres {
 			signerror.setTeacherId(tempsign.get(i).getTeacherId());
 			signerror.setState(tempsign.get(i).getState());
 			signerror.setAuditState("Î´ÉóºË");
+			signerror.setTimes((int)getSubjectTimes(teacherId, subjectId));
+			signerror.setTime(new Date("yyyy-mm-dd hh:mm:ss"));
 			signerror.save();
 		}
 	}
