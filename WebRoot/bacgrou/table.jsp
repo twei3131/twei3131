@@ -250,81 +250,50 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu" href="index.html"><i class="fa fa-dashboard"></i> 主页</a>
+                        <a class="active-menu" href="/bacgrou/getMain"><i class="fa fa-dashboard"></i> 主页</a>
                     </li>
                     <li>
-                        <a href="table.html"><i class="fa fa-desktop"></i> 班级考核查询</a>
+                        <a href="#"><i class="fa fa-sitemap"></i> 班级考核查询<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                        <c:forEach items="${classes}" var="list">
+                            <li>
+                                <a href="/bacgrou/audit?instructorId=${userId}&subjectId=sub0003&classId=${list.classId}">${list.name}</a>
+                            </li>
+                        </c:forEach> 
+						</ul>
                     </li> 
-                     
-                     <li>
+					 
+					 <li>
                         <a href="#"><i class="fa fa-sitemap"></i> 录入管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="form.html">学生录入管理</a>
+                                <a href="/bacgrou/form.jsp">学生录入管理</a>
                             </li>
                             <li>
-                                <a href="form.html">课程录入管理</a>
+                                <a href="/bacgrou/form.jsp">课程录入管理</a>
                             </li>
                             <li>
-                                <a href="form.html">班级录入管理</a>
+                                <a href="/bacgrou/form.jsp">班级录入管理</a>
                             </li>
                             <li>
-                                 <a href="form.html">教师录入管理</a>
+                                 <a href="/bacgrou/form.jsp">教师录入管理</a>
                             </li>
                             <li>
-                                 <a href="form.html">选修课/体育课录入管理</a>
+                                 <a href="/bacgrou/form.jsp">选修课/体育课录入管理</a>
                             </li>
                             <li>
-                                <a href="form.html">课表管理</a>
+                                <a href="/bacgrou/form.jsp">课表管理</a>
                             </li>
                              <li>
-                                <a href="form.html">虚拟班级管理</a>
+                                <a href="/bacgrou/form.jsp">虚拟班级管理</a>
                             </li>
-                            </ul>
-                        </li>   
-                            
-                   <!--  <li>
-                        <a href="tab-panel.html"><i class="fa fa-qrcode"></i> Tabs & Panels</a>
-                    </li> -->
+							</ul>
+						</li>	
                     
                     <li>
-                        <a href="table.html"><i class="fa fa-table"></i> 学生签到情况审核管理</a>
+                        <a href="/bacgrou/table.jsp"><i class="fa fa-table"></i> 学生签到情况审核管理</a>
                     </li>
-                   <!--  <li>
-                        <a href="form.html"><i class="fa fa-edit"></i> Forms </a>
-                    </li> -->
-
-
-                    <!-- <li>
-                        <a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Link<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-
-                                </ul>
-
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="empty.html"><i class="fa fa-fw fa-file"></i> Empty Page</a>
-                    </li> -->
+                  
                 </ul>
 
             </div>

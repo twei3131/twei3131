@@ -12,6 +12,15 @@ public class BacgrouController extends Controller {
 		render("/bacgrou/index.jsp");
 	}
 	
+	public void getMain(){
+		
+		String username = getSessionAttr("uid").toString();
+		List<Classes> classes = Classes.dao.find("select * from classes where instructorId = ?",username);
+		setAttr("classes", classes);
+		setAttr("userId", username);
+		render("/bacgrou/main.jsp");
+	}
+	
 	public void login() {
 		String username = getPara("username");
 		String password = getPara("password");
@@ -25,10 +34,8 @@ public class BacgrouController extends Controller {
 			Users users = new Users();
 			if (users.judgeIndentityByUserId(username).equals("instructor")) {
 				if (users.isUserByUserId(username, password)) {
-					List<Classes> classes = Classes.dao.find("select * from classes where instructorId = ?",username);
-					setAttr("classes", classes);
-					setAttr("userId", username);
-					render("/bacgrou/main.jsp");
+					setSessionAttr("uid", username);
+					getMain();
 				}else{
 					
 				}
@@ -49,6 +56,10 @@ public class BacgrouController extends Controller {
 		"WHERE d.instructorId='"+instructorId+"' AND c.classId = '"+classId+"' AND a.subjectId = '"+subjectId+"'";
 		
 		List<Signerror> list = Signerror.dao.find(sql);
+		
+		List<Classes> classes = Classes.dao.find("select * from classes where instructorId = ?",instructorId);
+		setAttr("classes", classes);
+		setAttr("userId", instructorId);
 		
 		setAttr("context", list);
 		

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -252,7 +253,14 @@
                         <a class="active-menu" href="/bacgrou/main.jsp"><i class="fa fa-dashboard"></i> 主页</a>
                     </li>
                     <li>
-                        <a href="/bacgrou/audit?instructorId=ins0001&subjectId=sub0003&classId=20001"><i class="fa fa-desktop"></i> 班级考核查询</a>
+                        <a href="#"><i class="fa fa-sitemap"></i> 班级考核查询<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                        <c:forEach items="${classes}" var="list">
+                            <li>
+                                <a href="/bacgrou/audit?instructorId=${userId}&subjectId=sub0003&classId=${list.classId}">${list.name}</a>
+                            </li>
+                        </c:forEach> 
+						</ul>
                     </li> 
 					 
 					 <li>
@@ -281,49 +289,11 @@
                             </li>
 							</ul>
 						</li>	
-							
-                   <!--  <li>
-                        <a href="tab-panel.html"><i class="fa fa-qrcode"></i> Tabs & Panels</a>
-                    </li> -->
                     
                     <li>
                         <a href="/bacgrou/table.jsp"><i class="fa fa-table"></i> 学生签到情况审核管理</a>
                     </li>
-                   <!--  <li>
-                        <a href="form.html"><i class="fa fa-edit"></i> Forms </a>
-                    </li> -->
-
-
-                    <!-- <li>
-                        <a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Link<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-
-                                </ul>
-
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="empty.html"><i class="fa fa-fw fa-file"></i> Empty Page</a>
-                    </li> -->
+                  
                 </ul>
 
             </div>
