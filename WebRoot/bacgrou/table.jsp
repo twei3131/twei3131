@@ -273,19 +273,19 @@
                         <a href="#"><i class="fa fa-sitemap"></i> 录入管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/bacgrou/form.jsp">学生录入管理</a>
+                                <a href="/bacgrou/getDownPage/demo_Student">学生录入管理</a>
                             </li>
                             <li>
-                                <a href="/bacgrou/form.jsp">课程录入管理</a>
+                                <a href="/bacgrou/getDownPage/demo_Subject">课程录入管理</a>
                             </li>
                             <li>
-                                <a href="/bacgrou/form.jsp">班级录入管理</a>
+                                <a href="/bacgrou/getDownPage/demo_Classes">班级/辅导员录入管理</a>
                             </li>
                             <li>
-                                 <a href="/bacgrou/form.jsp">教师录入管理</a>
+                                 <a href="/bacgrou/getDownPage/demo_Teacher">教师录入管理</a>
                             </li>
                             <li>
-                                 <a href="/bacgrou/form.jsp">选修课/体育课录入管理</a>
+                                 <a href="/bacgrou/getDownPage/demo_Group">选修课/体育课录入管理</a>
                             </li>
                             <li>
                                 <a href="/bacgrou/form.jsp">课表管理</a>
