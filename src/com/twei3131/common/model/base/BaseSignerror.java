@@ -49,4 +49,20 @@ public abstract class BaseSignerror<M extends BaseSignerror<M>> extends Model<M>
 		return get("auditState");
 	}
 
+	public void setTimes(java.lang.Integer times) {
+		set("times", times);
+	}
+
+	public java.lang.Integer getTimes() {
+		return get("times");
+	}
+
+	public void setTime(java.util.Date time) {
+		set("time", time);
+	}
+
+	public java.util.Date getTime() {
+		return get("time");
+	}
+
 }
