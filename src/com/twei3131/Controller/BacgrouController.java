@@ -18,13 +18,25 @@ public class BacgrouController extends Controller {
 		render("/bacgrou/index.jsp");
 	}
 	
-	public void getMain(){
-		
+	public void context(){
 		String username = getSessionAttr("uid").toString();
 		List<Classes> classes = Classes.dao.find("select * from classes where instructorId = ?",username);
 		setAttr("classes", classes);
 		setAttr("userId", username);
+	}
+	
+	public void getMain(){
+		
+		context();
 		render("/bacgrou/main.jsp");
+	}
+	
+	public void setAudit(){
+		
+		context();
+		String sql = "";
+		Signerror signerror = Signerror.dao.findFirst(sql);
+		render("/bacgrou/audit.jsp");
 	}
 	
 	public void login() {
