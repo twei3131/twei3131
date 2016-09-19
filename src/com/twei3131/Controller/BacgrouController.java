@@ -27,7 +27,7 @@ public class BacgrouController extends Controller {
 				if (users.isUserByUserId(username, password)) {
 					List<Classes> classes = Classes.dao.find("select * from classes where instructorId = ?",username);
 					setAttr("classes", classes);
-					setSessionAttr("userId", username);
+					setAttr("userId", username);
 					render("/bacgrou/main.jsp");
 				}else{
 					
