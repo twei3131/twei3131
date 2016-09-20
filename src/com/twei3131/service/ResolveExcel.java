@@ -139,12 +139,12 @@ public class ResolveExcel {
 			Subjecttoteacher subjecttoteacher = new Subjecttoteacher();
 			
 			Long subCou = Db.queryLong("select count(*) from subject where subjectId = ?",tempList.get(0));
-			Long sttCou = Db.queryLong("select count(*) from subjecttoteacher where subjectId ='"+tempList.get(0)+"' and teacherId ="+tempList.get(4));
+			Long sttCou = Db.queryLong("select count(*) from subjecttoteacher where subjectId ='"+tempList.get(0)+"' and teacherId ='"+tempList.get(4)+"'");
 			
 			if (subCou != 1) {
 				subject.setSubjectId(tempList.get(0));
 				subject.setSubjectName(tempList.get(1));
-				subject.setClassNumber(Integer.valueOf(tempList.get(2)));
+				subject.setClassNumber(Integer.valueOf(tempList.get(2).replace(".0", "")));
 				subject.setType(tempList.get(3));
 				subject.save();
 			}
