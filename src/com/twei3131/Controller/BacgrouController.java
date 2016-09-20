@@ -36,7 +36,9 @@ public class BacgrouController extends Controller {
 		String times = getPara(1);
 		context();
 		Signerror signerror = Signerror.dao.findById(stuId,times);
+		Student student = Student.dao.findById(signerror.getStudentId());
 		setAttr("signerror", signerror);
+		setAttr("student", student);
 		render("/bacgrou/audit.jsp");
 	}
 	
