@@ -333,7 +333,7 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>学号</th><th>教师编号</th><th>课程编号</th><th>状态</th><th>审核状态</th>
+                                            <th>学号</th><th>教师编号</th><th>课程编号</th><th>时间<th>状态</th><th>审核状态</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -342,6 +342,7 @@
 	                                            <td><a href="javascript:getStuInfo(${list.studentId})">${list.studentId}</a></td>
 	                                            <td><a href="javascript:getTeaInfos('${list.teacherId}')">${list.teacherId}</a></td>
 	                                            <td><a href="javascript:getSubInfo('${list.subjectId}')">${list.subjectId}</a></td>
+	                                            <td>${list.time}</td>
 	                                            <td class="center">${list.state}</td>
 	                                            <td class="center">${list.auditState}</td>
 	                                        </tr>

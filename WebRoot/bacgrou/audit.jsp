@@ -321,7 +321,6 @@
                                     </div>
                                 </div>
                                 <div class="panel-body">
-                                    Examples of standard form controls. such as input, textarea, select, checkboxes and radios , static control, etc.
                                     <div class="sub-title">Input</div>
                                     <div>
                                         <input type="text" class="form-control" placeholder="Text input">
@@ -329,77 +328,6 @@
                                     <div class="sub-title">Textarea</div>
                                     <div>
                                         <textarea class="form-control" rows="3"></textarea>
-                                    </div>
-                                    <div class="sub-title">Checkboxes and radios </div>
-                                    <div>
-                                        <div class="checkbox3 checkbox-round">
-                                          <input type="checkbox" id="checkbox-2">
-                                          <label for="checkbox-2">
-                                            Option one is this and that&mdash;be sure to include why it's great
-                                          </label>
-                                        </div>
-                                        <div class="checkbox3 checkbox-round">
-                                          <input type="checkbox" id="checkbox-3" disabled="">
-                                          <label for="checkbox-3">
-                                            Option two is disabled
-                                          </label>
-                                        </div>
-                                        <div class="radio3">
-                                          <input type="radio" id="radio1" name="radio1" value="option1">
-                                          <label for="radio1">
-                                            Option one is this and that&mdash;be sure to include why it's great
-                                          </label>
-                                        </div>
-                                        <div class="radio3">
-                                          <input type="radio" id="radio2" name="radio1" value="option2">
-                                          <label for="radio2">
-                                            Option two can be something else and selecting it will deselect option one
-                                          </label>
-                                        </div>
-                                        <div class="sub-title">Inline</div>
-                                        <div>
-                                          <div class="checkbox3 checkbox-inline checkbox-check checkbox-light">
-                                            <input type="checkbox" id="checkbox-fa-light-1" checked="">
-                                            <label for="checkbox-fa-light-1">
-                                              Option1
-                                            </label>
-                                          </div>
-                                          <div class="checkbox3 checkbox-success checkbox-inline checkbox-check checkbox-round  checkbox-light">
-                                            <input type="checkbox" id="checkbox-fa-light-2" checked="">
-                                            <label for="checkbox-fa-light-2">
-                                              Option Round
-                                            </label>
-                                          </div>
-                                          <div class="checkbox3 checkbox-danger checkbox-inline checkbox-check  checkbox-circle checkbox-light">
-                                            <input type="checkbox" id="checkbox-fa-light-3" checked="">
-                                            <label for="checkbox-fa-light-3">
-                                              Option Circle
-                                            </label>
-                                          </div>
-                                        </div>
-                                        <div>
-                                          <div class="radio3 radio-check radio-inline">
-                                            <input type="radio" id="radio4" name="radio2" value="option1" checked="">
-                                            <label for="radio4">
-                                              Option 1
-                                            </label>
-                                          </div>
-                                          <div class="radio3 radio-check radio-success radio-inline">
-                                            <input type="radio" id="radio5" name="radio2" value="option2">
-                                            <label for="radio5">
-                                              Option 2
-                                            </label>
-                                          </div>
-                                          <div class="radio3 radio-check radio-warning radio-inline">
-                                            <input type="radio" id="radio6" name="radio2" value="option3">
-                                            <label for="radio6">
-                                              Option 3
-                                            </label>
-                                          </div>
-                                        </div>
-                                    </div> 
-                                    <div>
-                                        <input type="checkbox" class="toggle-checkbox" name="my-checkbox" checked>
                                     </div>
                                     <div class="sub-title">Select</div>
                                     <div>
@@ -470,109 +398,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <div class="card-title">
-                                        <div class="title">Basic example</div>
-                                    </div>
-                                </div>
-                                <div class="panel-body">
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Email address</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1">Password</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputFile">File input</label>
-                                            <input type="file" id="exampleInputFile">
-                                            <p class="help-block">Example block-level help text here.</p>
-                                        </div>
-                                        <div class="checkbox">
-                                          <div class="checkbox3 checkbox-round">
-                                            <input type="checkbox" id="checkbox-1">
-                                            <label for="checkbox-1">
-                                              Check me out
-                                            </label>
-                                          </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-default">Submit</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">					
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <div class="card-title">
-                                        <div class="title">Inline form</div>
-                                    </div>
-                                </div>
-                                <div class="panel-body">
-                                    <form class="form-inline">
-                                        <div class="form-group">
-                                            <label for="exampleInputName2">Name</label>
-                                            <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail2">Email</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
-                                        </div>
-                                        <button type="submit" class="btn btn-default">Send invitation</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <div class="card-title">
-                                        <div class="title">Horizontal form</div>
-                                    </div>
-                                </div>
-                                <div class="panel-body">
-                                    <form class="form-horizontal">
-                                        <div class="form-group">
-                                            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-                                            <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-                                            <div class="col-sm-10">
-                                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-2 col-sm-10">
-                                              <div class="checkbox3 checkbox-round checkbox-check checkbox-light">
-                                                <input type="checkbox" id="checkbox-10">
-                                                <label for="checkbox-10">
-                                                  Remember me
-                                                </label>
-                                              </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-2 col-sm-10">
-                                                <button type="submit" class="btn btn-default">Sign in</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                
 			<footer><p>Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="http://www.mycodes.net/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p></footer>
 			</div>

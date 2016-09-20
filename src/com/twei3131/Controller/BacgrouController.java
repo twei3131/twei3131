@@ -32,10 +32,11 @@ public class BacgrouController extends Controller {
 	}
 	
 	public void setAudit(){
-		
+		String stuId = getPara(0);
+		String times = getPara(1);
 		context();
-		String sql = "";
-		Signerror signerror = Signerror.dao.findFirst(sql);
+		Signerror signerror = Signerror.dao.findById(stuId,times);
+		setAttr("signerror", signerror);
 		render("/bacgrou/audit.jsp");
 	}
 	

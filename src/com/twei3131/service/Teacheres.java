@@ -132,8 +132,9 @@ public class Teacheres {
 	
 	public void setSignError(String teacherId,String subjectId){
 		List<Tempsign> tempsign = Tempsign.dao.find("select * from tempsign where teacherId = ?",teacherId);
+		
 		Date date = new Date();
-		System.out.println(tempsign.get(0).getTeacherId());
+
 		for(int i = 0;i < tempsign.size();i++){
 			Signerror signerror = new Signerror();
 			signerror.setStudentId(tempsign.get(i).getStudentId());
