@@ -80,7 +80,7 @@ function sub(){
 			alert("不能重复");
 		}else if(data.errcode == "000"){
 			window.localStorage['qrcodeUrl'] = data.url; 
-			window.location = "teacher/qrcode.jsp";
+			window.location = "qrcode.jsp";
 		}
 	});
 }

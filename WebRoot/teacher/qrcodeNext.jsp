@@ -14,9 +14,9 @@
 	<div id="qrcode"></div>
 	<div id="chacter">请扫描上方二维码</div>
 	<a href="${CONTEXT_PATH}${href}">${name}</a>
-	<script type="text/javascript" src="/lib/jquery-3.1.0.min.js"></script>
-	<script type="text/javascript" src="/lib/qrcode/jquery.qrcode.js"></script>
-	<script type="text/javascript" src="/lib/qrcode/qrcode.js"></script>
+	<script type="text/javascript" src="${CONTEXT_PATH}/lib/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="${CONTEXT_PATH}/lib/qrcode/jquery.qrcode.js"></script>
+	<script type="text/javascript" src="${CONTEXT_PATH}/lib/qrcode/qrcode.js"></script>
 	<script>
 		var text = window.localStorage['qrcodeUrl'];
 		$('#qrcode').qrcode({width: 512,height: 512,text: text});
