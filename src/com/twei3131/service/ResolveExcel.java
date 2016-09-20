@@ -18,6 +18,8 @@ import com.jfinal.plugin.activerecord.Db;
 import com.twei3131.common.model.Classes;
 import com.twei3131.common.model.Instructor;
 import com.twei3131.common.model.Student;
+import com.twei3131.common.model.Subject;
+import com.twei3131.common.model.Subjecttoteacher;
 import com.twei3131.common.model.Teacher;
 
 public class ResolveExcel {
@@ -126,6 +128,33 @@ public class ResolveExcel {
 		}
 		
 		Db.batchSave(teacheres, teacheres.size());
+	}
+	
+	public void savSub() throws IOException{
+		List<List<String>> list = resExcel("demo_Subject");
+		for(int i = 0;i < list.size();i++){
+			List<String> tempList = list.get(i);
+			
+			Subject subject = new Subject();
+			Subjecttoteacher subjecttoteacher = new Subjecttoteacher();
+			
+			Long subCou = Db.queryLong("select count(*) from subject where subjectId = ?",tempList.get(0));
+			Long sttCou = Db.queryLong("select count(*) from subjecttoteacher where subjectId ='"+tempList.get(0)+"' and teacherId ="+tempList.get(4));
+			
+			if (subCou != 1) {
+				subject.setSubjectId(tempList.get(0));
+				subject.setSubjectName(tempList.get(1));
+				subject.setClassNumber(Integer.valueOf(tempList.get(2)));
+				subject.setType(tempList.get(3));
+				subject.save();
+			}
+			
+			if (sttCou != 1) {
+				subjecttoteacher.setSubjectId(tempList.get(0));
+				subjecttoteacher.setTeacherId(tempList.get(4));
+				subjecttoteacher.save();
+			}
+		}
 	}
 	
 	public void deleteFile(String filename){
