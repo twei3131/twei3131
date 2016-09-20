@@ -14,6 +14,8 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import com.jfinal.kit.PathKit;
 import com.jfinal.plugin.activerecord.Db;
+import com.twei3131.common.model.Classes;
+import com.twei3131.common.model.Instructor;
 import com.twei3131.common.model.Student;
 
 public class ResolveExcel {
@@ -66,6 +68,40 @@ public class ResolveExcel {
 			}
 		}
 		Db.batchSave(students, students.size());
+	}
+	
+	public void savCla() throws IOException{
+		List<List<String>> list = resExcel("demo_Classes");
+		List<Classes> classes = new ArrayList<Classes>();
+		List<Instructor> instructors = new ArrayList<Instructor>();
+		for(int i = 0;i < list.size();i++){
+			List<String> tempList = list.get(i);
+			
+			Classes claes = new Classes();
+			Instructor instructor = new Instructor();
+			
+			Long claCou = Db.queryLong("select count(*) from classes where classId = ?",tempList.get(0));
+			Long insCou = Db.queryLong("select count(*) from instructor where instructorId = ?",tempList.get(4));
+			if (claCou == 0) {
+				claes.setClassId(tempList.get(0));
+				claes.setName(tempList.get(1));
+				claes.setDepartmentId(tempList.get(2));
+				claes.setGradeId(Integer.valueOf(tempList.get(3)));
+				claes.setInstructorId(tempList.get(4));
+				classes.add(claes);
+			}
+			
+			if (insCou == 0) {
+				instructor.setInstructorId(tempList.get(4));
+				instructor.setInstructorName(tempList.get(5));
+				instructor.setPhoneNumber(tempList.get(6));
+				instructor.setPhoneNumber("none");
+				instructors.add(instructor);
+			}
+		}
+		
+		Db.batchSave(classes, classes.size());
+		Db.batchSave(instructors, instructors.size());
 	}
 	
 	public void deleteFile(String filename){
