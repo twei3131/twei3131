@@ -8,6 +8,7 @@ import java.util.Map;
 import com.jfinal.core.Controller;
 import com.jfinal.kit.JsonKit;
 import com.jfinal.kit.PathKit;
+import com.jfinal.upload.UploadFile;
 import com.twei3131.common.model.Classes;
 import com.twei3131.common.model.Signerror;
 import com.twei3131.common.model.Student;
@@ -182,5 +183,14 @@ public class BacgrouController extends Controller {
 		String path = basePath + filename + ".xlsx";
 		File file = new File(path);
 		renderFile(file);
+	}
+	
+	public void uploadFile(){
+		UploadFile uploadFile = getFile("upload");
+		File file = uploadFile.getFile();
+		String filename = file.getName().split(".")[0];
+		if (filename.equals("demo_Student")) {
+			
+		}
 	}
 }

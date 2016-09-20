@@ -325,7 +325,7 @@
                                     <form>
                                         <div class="form-group">
                                             <label for="exampleInputFile">File input</label>
-                                            <input type="file" id="exampleInputFile">
+                                            <input type="file" id="exampleInputFile" name="upload">
                                             <p class="help-block"><a href="/bacgrou/downloadFile/${filename}">示例文件下载</a></p>
                                         </div>
 										<button type="submit" class="btn btn-default">Submit</button>
