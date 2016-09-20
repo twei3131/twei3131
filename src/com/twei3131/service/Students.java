@@ -24,7 +24,7 @@ public class Students {
 				}
 			}
 		}
-		System.out.println("1£º"+scanState+"£¬2:"+classState+"£¬3£º"+studentState);
+
 		return studentState;
 	}
 	
@@ -55,7 +55,7 @@ public class Students {
 				stuState = "³Ùµ½ÏÂ¿Î";
 			}
 		}
-		System.out.println(stuState + "and" + studentState);
+
 		return stuState;
 	}
 	
