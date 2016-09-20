@@ -345,7 +345,7 @@
 	                                            <td>${list.time}</td>
 	                                            <td class="center">${list.state}</td>
 	                                            <td class="center">${list.auditState}</td>
-	                                            <td><a href="javascript:void(0)" class="btn btn-primary center">审核</a><a href="/bacgrou/setAudit/${list.studentId}-${list.times}" class="btn btn-danger center">修改</a></td>
+	                                            <td><a href="javascript:changeAudite(${list.studentId},${list.times})" class="btn btn-primary center">审核</a><a href="/bacgrou/setAudit/${list.studentId}-${list.times}" class="btn btn-danger center">修改</a></td>
 	                                        </tr>
                                         </c:forEach>	
                                     </tbody>
@@ -398,6 +398,11 @@
             	$.get("/bacgrou/getSubInfo",{"subId":subjectId},function(data){
             		var content = "课程编号:"+data.subId+";课程名:"+data.subName;
             		alert(content);
+            	});
+            }
+            function changeAudite(uId,times){
+            	$.get("/bacgrou/changeAuditState",{"userId":uId,"times":times},function(data){
+            		
             	});
             }
     </script>
