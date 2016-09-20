@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>生成二维码</title>
-<link rel="stylesheet" type="text/css" href="/css/qrcode.css">
+<link rel="stylesheet" type="text/css" href="${CONTEXT_PATH}/css/qrcode.css">
 </head>
 <body>
 	<div id="head">
@@ -15,14 +15,15 @@
 	<div id="chacter">请扫描上方二维码</div>
 	<a href="#">上课</a>
 	<div>${err}</div>
-	<script type="text/javascript" src="/lib/jquery-3.1.0.min.js"></script>
-	<script type="text/javascript" src="/lib/qrcode/jquery.qrcode.js"></script>
-	<script type="text/javascript" src="/lib/qrcode/qrcode.js"></script>
+	<script type="text/javascript" src="${CONTEXT_PATH}/lib/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="${CONTEXT_PATH}/lib/qrcode/jquery.qrcode.js"></script>
+	<script type="text/javascript" src="${CONTEXT_PATH}/lib/qrcode/qrcode.js"></script>
 	<script>
+		var basehref = '${CONTEXT_PATH}';
 		var text = window.localStorage['qrcodeUrl'];
 		$('#qrcode').qrcode({width: 512,height: 512,text: text});
 		var content = localStorage['qrcodeUrl'].split("?")[1];
-		$("a").attr('href','/teacher/getSub/?'+content);
+		$("a").attr('href',basehref+'/teacher/getSub/?'+content);
 	</script>
 </body>
 </html>

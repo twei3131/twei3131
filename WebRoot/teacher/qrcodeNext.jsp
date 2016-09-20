@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>生成二维码</title>
-<link rel="stylesheet" type="text/css" href="/css/qrcode.css">
+<link rel="stylesheet" type="text/css" href="${CONTEXT_PATH}/css/qrcode.css">
 </head>
 <body>
 	<div id="head">
@@ -13,7 +13,7 @@
 	</div>
 	<div id="qrcode"></div>
 	<div id="chacter">请扫描上方二维码</div>
-	<a href="${href}">${name}</a>
+	<a href="${CONTEXT_PATH}${href}">${name}</a>
 	<script type="text/javascript" src="/lib/jquery-3.1.0.min.js"></script>
 	<script type="text/javascript" src="/lib/qrcode/jquery.qrcode.js"></script>
 	<script type="text/javascript" src="/lib/qrcode/qrcode.js"></script>

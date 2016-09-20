@@ -67,12 +67,12 @@ public class UserController extends Controller {
 		if (isUser) {
 			if (user.judgeIndentityByUserId(username) == "teacher") {
 				//返回用户名和密码
-				setAttr("username", username);
-				setAttr("password", password);
 				
 				setSessionAttr("status", "200");
-				
-				render("/teacher/teacher.jsp");
+				setSessionAttr("uid", username);
+				setSessionAttr("pas", password);
+				System.out.println(1);
+				redirect("/teacher/teacher.jsp");
 			}
 			
 			if(user.judgeIndentityByUserId(username) == "student"){

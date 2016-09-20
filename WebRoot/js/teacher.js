@@ -18,7 +18,7 @@ window.onload = function(){
 //获取课程
 function aja(){
 	if(window.localStorage['username'] != null && window.localStorage['password'] != null){
-		$.post("/teacher/getInfo",{"username":localStorage['username'],"password":localStorage['password']},function(data){
+		$.post("getInfo",{"username":localStorage['username'],"password":localStorage['password']},function(data){
 			var datas = "";
 			var i = 0;
 			$.each(data,function(){
@@ -39,7 +39,7 @@ function listenSelect(){
 
 //获取组编号
 function getGroupIds(){
-	$.post("/teacher/getGroupId",{"username":localStorage['username'],"subjectId":$("#subId option:selected").val()},function(data){
+	$.post("getGroupId",{"username":localStorage['username'],"subjectId":$("#subId option:selected").val()},function(data){
 		if(JSON.stringify(data) == '[]'){
 			$("#gpId").html('<option>无</option>');
 		}else{
@@ -63,7 +63,7 @@ function setKey(){
 			localStorage['username'] = username;
 			localStorage['password'] = password;
 		}else{
-			window.location = "/user/login.jsp";
+			window.location = "user/login.jsp";
 		}
 	}
 }
@@ -73,14 +73,14 @@ function sub(){
 	var password = localStorage['password'];
 	var subjectId = $("#subId  option:selected").val();
 	var groupId = $("#gpId option:selected").val();
-	$.post("/teacher/initQRCode",{"teacherId":username,"password":password,"subjectId":subjectId,"groupId":groupId},function(data){
+	$.post("initQRCode",{"teacherId":username,"password":password,"subjectId":subjectId,"groupId":groupId},function(data){
 		if(data.errcode == "100"){
 			alert("非法");
 		}else if(data.errcode == "200"){
 			alert("不能重复");
 		}else if(data.errcode == "000"){
 			window.localStorage['qrcodeUrl'] = data.url; 
-			window.location = "/teacher/qrcode.jsp";
+			window.location = "teacher/qrcode.jsp";
 		}
 	});
 }
@@ -88,7 +88,7 @@ function sub(){
 //获取姓名
 function getName(){
 	var username = localStorage['username'];
-	$.post("/teacher/getNameByUserId",{"username":username},function(data){
+	$.post("getNameByUserId",{"username":username},function(data){
 		$("#teaname").text(data.name);
 	});
 }

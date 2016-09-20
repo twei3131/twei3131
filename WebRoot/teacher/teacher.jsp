@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>生成二维码</title>
-<link rel="stylesheet" type="text/css" href="/css/teacher.css">
+<link rel="stylesheet" type="text/css" href="${CONTEXT_PATH}/css/teacher.css">
 </head>
 <body>
 	<div id="bott">
@@ -16,9 +16,17 @@
 				<a id="qrcod" href="javascript:sub()">生成二维码</a>
 			</ul>
 		</div>
-		<div style="display:none" id="username">${username}</div>
-		<div style="display:none" id="password">${password}</div>
-	<script type="text/javascript" src="/lib/jquery-3.1.0.min.js"></script>
-	<script type="text/javascript" src="/js/teacher.js"></script>
+		<%
+			String uid = "";
+			String pass = "";
+			if(session.getAttribute("uid") != null && session.getAttribute("pas") != null){
+				uid = session.getAttribute("uid").toString();
+				pass = session.getAttribute("pas").toString();
+			}
+		%>
+		<div style="display:none" id="username"><%=uid%></div>
+		<div style="display:none" id="password"><%=pass%></div>
+	<script type="text/javascript" src="${CONTEXT_PATH}/lib/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="${CONTEXT_PATH}/js/teacher.js"></script>
 </body>
 </html>

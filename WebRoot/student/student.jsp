@@ -5,16 +5,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>学生签到</title>
-<link rel="stylesheet" type="text/css" href="/css/student.css">
-<link rel="stylesheet" type="text/css" href="/lib/percircle/css/percircle.css">
+<link rel="stylesheet" type="text/css" href="${CONTEXT_PATH}/css/student.css">
+<link rel="stylesheet" type="text/css" href="${CONTEXT_PATH}/lib/percircle/css/percircle.css">
 </head>
 </head>
 <body>
 	<div id="clock" class="purple big"></div>
-	<a id="btn" href="${href}">${state}</a>
-	<script type="text/javascript" src="/lib/jquery-3.1.0.min.js"></script>
-	<script type="text/javascript" src="/lib/percircle/js/percircle.min.js"></script>
-	<script type="text/javascript" src="/js/student.js"></script>
+	<a id="btn" href="${CONTEXT_PATH}${href}">${state}</a>
+	<script type="text/javascript" src="${CONTEXT_PATH}/lib/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="${CONTEXT_PATH}/lib/percircle/js/percircle.min.js"></script>
+	<script type="text/javascript" src="${CONTEXT_PATH}/js/student.js"></script>
 	<script type="text/javascript">
 		$(function(){
 			 $("#clock").percircle({
