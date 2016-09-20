@@ -402,7 +402,14 @@
             }
             function changeAudite(uId,times){
             	$.get("/bacgrou/changeAuditState",{"userId":uId,"times":times},function(data){
-            		
+            		var content = data.status;
+            		var alte = "";
+            		if(content == 200){
+            			alte = "审核状态修改成功";
+            		}else{
+            			alte = "您可能已修改过审核状态！";
+            		}
+            		alert(alte);
             	});
             }
     </script>
