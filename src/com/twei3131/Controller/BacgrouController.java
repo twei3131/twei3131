@@ -171,6 +171,7 @@ public class BacgrouController extends Controller {
 	
 	public void getDownPage(){
 		String type = getPara(0);
+		context();
 		setAttr("filename", type);
 		render("/bacgrou/fileF.jsp");
 	}
