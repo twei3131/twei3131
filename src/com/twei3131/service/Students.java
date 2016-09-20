@@ -51,9 +51,11 @@ public class Students {
 				stuState = "旷课";
 			}else if (studentState.equals("正常下课")) {
 				stuState = "正常下课";
+			}else if (studentState.equals("迟到下课")) {
+				stuState = "迟到下课";
 			}
 		}
-		System.out.println(scanState);
+		System.out.println(stuState + "and" + studentState);
 		return stuState;
 	}
 	
