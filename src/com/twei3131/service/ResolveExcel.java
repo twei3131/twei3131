@@ -86,7 +86,7 @@ public class ResolveExcel {
 			
 			Long claCou = Db.queryLong("select count(*) from classes where classId = ?",tempList.get(0).replace(".0", ""));
 			Long insCou = Db.queryLong("select count(*) from instructor where instructorId = ?",tempList.get(4).replace(".0", ""));
-			System.out.println(insCou);
+
 			if (claCou == 0) {
 				claes.setClassId(tempList.get(0).replace(".0", ""));
 				claes.setName(tempList.get(1));
@@ -95,7 +95,7 @@ public class ResolveExcel {
 				claes.setInstructorId(tempList.get(4));
 				classes.add(claes);
 			}
-			System.out.println("¸¨µ¼Ô±±àºÅ:"+tempList.get(4));
+
 			if (insCou == 0) {
 				instructor.setInstructorId(tempList.get(4));
 				instructor.setInstructorName(tempList.get(5));
