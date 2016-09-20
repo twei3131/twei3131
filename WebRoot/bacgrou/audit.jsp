@@ -324,7 +324,7 @@
                                 <form action="" method="post">
                                     <div class="sub-title">姓名</div>
                                     <div>
-                                        <input type="text" readonly="readonly" value="${student.studentName}" class="form-control" placeholder="Text input">
+                                        <input type="text" name="username" readonly="readonly" value="${student.studentName}" class="form-control" placeholder="Text input">
                                     </div>
                                     <div class="sub-title">状态</div>
                                     <div>

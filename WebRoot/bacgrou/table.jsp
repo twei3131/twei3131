@@ -333,7 +333,7 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>学号</th><th>教师编号</th><th>课程编号</th><th>时间<th>状态</th><th>审核状态</th>
+                                            <th>学号</th><th>教师编号</th><th>课程编号</th><th>时间<th>状态</th><th>审核状态</th><th>修改</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -345,6 +345,7 @@
 	                                            <td>${list.time}</td>
 	                                            <td class="center">${list.state}</td>
 	                                            <td class="center">${list.auditState}</td>
+	                                            <td><a href="#" class="btn btn-primary center">审核</a><a href="#" class="btn btn-danger center">修改</a></td>
 	                                        </tr>
                                         </c:forEach>	
                                     </tbody>
