@@ -71,6 +71,28 @@ public class BacgrouController extends Controller {
 		}
 	}
 	
+	public void changeAuditState(){
+		String stuId = getPara("userId");
+		String times = getPara("times");
+		
+		boolean flag = false;
+		Map<String, String> map = new HashMap<String, String>();
+		
+		Signerror signerror = Signerror.dao.findById(stuId,times);
+		String state = signerror.getAuditState();
+		if (state.equals("Œ¥…Û∫À")) {
+			signerror.setAuditState("…Û∫À");
+			flag = signerror.update();
+		}
+		
+		if (flag) {
+			map.put("status", "200");
+		}else {
+			map.put("status", "500");
+		}
+		renderJson(map);
+	}
+	
 	public void login() {
 		String username = getPara("username");
 		String password = getPara("password");
