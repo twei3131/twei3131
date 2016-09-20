@@ -59,13 +59,12 @@ public class BacgrouController extends Controller {
 		}
 		
 		 if (flag) {
-			 	System.out.println(1);
 			 	context();
 				signerror = Signerror.dao.findById(stuId,times);
 				Student student = Student.dao.findById(signerror.getStudentId());
 				setAttr("signerror", signerror);
 				setAttr("student", student);
-				render("/bacgrou/audit.jsp");
+				render("/bacgrou/table.jsp");
 				
 		}else{
 			renderError(500);
