@@ -57,11 +57,11 @@ public abstract class BaseSignerror<M extends BaseSignerror<M>> extends Model<M>
 		return get("times");
 	}
 
-	public void setTime(java.util.Date time) {
+	public void setTime(java.lang.String time) {
 		set("time", time);
 	}
 
-	public java.util.Date getTime() {
+	public java.lang.String getTime() {
 		return get("time");
 	}
 

@@ -128,6 +128,7 @@ public class Teacheres {
 		return i>= 0;
 	}
 	
+	@SuppressWarnings("deprecation")
 	public void setSignError(String teacherId,String subjectId){
 		List<Tempsign> tempsign = Tempsign.dao.find("select * from tempsign where teacherId = ?",teacherId);
 		for(int i = 0;i < tempsign.size();i++){
@@ -138,7 +139,7 @@ public class Teacheres {
 			signerror.setState(tempsign.get(i).getState());
 			signerror.setAuditState("Î´ÉóºË");
 			signerror.setTimes((int)getSubjectTimes(teacherId, subjectId));
-			signerror.setTime(new Date("yyyy-mm-dd hh:mm:ss"));
+			signerror.setTime(new Date("yyyy-mm-dd hh:mm:ss").toString());
 			signerror.save();
 		}
 	}
