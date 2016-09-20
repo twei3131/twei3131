@@ -333,10 +333,8 @@
                                     </div>
                                     <div class="sub-title">状态</div>
                                     <div>
-                                        <select name="state" class="selectbox">
+                                        <select name="state" class="selectbox" value=${signerror.state}>
                                             <optgroup label="状态">
-                                                 <option value="未到">未到</option>
-                                                 <option value="迟到">迟到</option>
                                                  <option value="早退">早退</option>
                                                  <option value="旷课">旷课</option>
                                                  <option value="正常下课">正常下课</option>
