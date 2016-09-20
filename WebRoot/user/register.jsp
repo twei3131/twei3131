@@ -5,7 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>注册</title>
-<!--<base href="${CONTEXT_PATH}/" />-->
 <link rel="stylesheet" href = "/css/register.css">
 <script type="text/javascript" src="/lib/jquery-3.1.0.min.js"></script>
 <script type="text/javascript" src="/js/register.js"></script>

@@ -5,7 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<base href="${CONTEXT_PATH}/" />
 </head>
 <body>
 

@@ -5,7 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>生成二维码</title>
-<!--<base href="${CONTEXT_PATH}/" />-->
 <link rel="stylesheet" type="text/css" href="/css/qrcode.css">
 </head>
 <body>
