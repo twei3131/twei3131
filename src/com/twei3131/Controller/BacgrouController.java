@@ -42,6 +42,35 @@ public class BacgrouController extends Controller {
 		render("/bacgrou/audit.jsp");
 	}
 	
+	public void setAuditTwo() {
+		String stuId = getPara("userId");
+		String state = getPara("state");
+		String times = getPara("times");
+		
+		Signerror signerror = new Signerror();
+		Boolean flag = false;
+		
+		if (state.equals("正常下课") || state.equals("请假") || state.equals("带架上课")) {
+			 flag = signerror.deleteById(stuId,times);
+		}else {
+			signerror = Signerror.dao.findById(stuId,times);
+			signerror.setState(state);
+			flag = signerror.update();
+		}
+		
+		 if (flag) {
+			 	context();
+				signerror = Signerror.dao.findById(stuId,times);
+				Student student = Student.dao.findById(signerror.getStudentId());
+				setAttr("signerror", signerror);
+				setAttr("student", student);
+				render("/bacgrou/audit.jsp");
+				
+		}else{
+			renderError(500);
+		}
+	}
+	
 	public void login() {
 		String username = getPara("username");
 		String password = getPara("password");

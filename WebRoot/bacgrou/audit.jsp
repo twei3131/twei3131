@@ -322,7 +322,11 @@
                                     </div>
                                 </div>
                                 <div class="panel-body">
-                                <form action="" method="post">
+                                <form action="/bacgrou/setAuditTwo" method="post">
+                                    <div style="display:none;">
+                                        <input type="text" name="userId" readonly="readonly" value="${student.studentId}" class="form-control" placeholder="Text input">
+                                        <input type="text" name="times" readonly="readonly" value="${signerror.times}" class="form-control" placeholder="Text input">
+                                    </div>
                                     <div class="sub-title">姓名</div>
                                     <div>
                                         <input type="text" name="username" readonly="readonly" value="${student.studentName}" class="form-control" placeholder="Text input">
@@ -332,7 +336,6 @@
                                         <select name="state" class="selectbox">
                                             <optgroup label="状态">
                                                  <option value="未到">未到</option>
-                                                 <option value="正常">正常</option>
                                                  <option value="迟到">迟到</option>
                                                  <option value="早退">早退</option>
                                                  <option value="旷课">旷课</option>
