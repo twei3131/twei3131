@@ -62,7 +62,7 @@ public class TeacherController extends Controller {
 			List<Student> list = scan.getStudentInfoBySubjectId(teacherId, subjectId, groupId);
 			scan.setStudentInfo(list, teacherId, subjectId);//数据库操作
 			scan.setSubjectInfo(teacherId, subjectId);//数据库操作
-			String url = getRequest().getContextPath()+File.separator+"/student/getState?subjectId="+subjectId+"&teacherId="+teacherId;
+			String url = getRequest().getScheme()+"://"+getRequest().getServerName()+":"+getRequest().getServerPort()+getRequest().getContextPath()+"/student/getState?subjectId="+subjectId+"&teacherId="+teacherId;
 			setAttr("errcode", "000");
 			setAttr("url", url);			
 			renderJson();
