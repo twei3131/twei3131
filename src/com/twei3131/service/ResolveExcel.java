@@ -20,7 +20,7 @@ public class ResolveExcel {
 	public final String basePath = PathKit.getWebRootPath()+File.separator+"twei3131Load"+File.separator;
 	@SuppressWarnings("resource")
 	public List<List<String>> resExcel(String filename) throws IOException{
-		InputStream inStream = new FileInputStream(basePath+filename+".xlsx");
+		InputStream inStream = new FileInputStream(basePath+filename+".xls");
 		List<List<String>> restult = new ArrayList<List<String>>();
 		HSSFWorkbook hssfWorkbook = new HSSFWorkbook(inStream);
 		for(int numSheet = 0;numSheet < hssfWorkbook.getNumberOfSheets();numSheet++){
@@ -28,7 +28,7 @@ public class ResolveExcel {
 			if (hssfSheet == null) {
 				continue;
 			}
-			for(int rowNum = 1;rowNum<hssfSheet.getLastRowNum();rowNum++){
+			for(int rowNum = 1;rowNum<=hssfSheet.getLastRowNum();rowNum++){
 				HSSFRow hssfRow = hssfSheet.getRow(rowNum);
 				
 				int minCilIx = hssfRow.getFirstCellNum();
@@ -55,13 +55,24 @@ public class ResolveExcel {
 		for(int i = 0;i < list.size();i++){
 			Student student = new Student();
 			List<String> tempList = list.get(i);
-			student.setStudentId(tempList.get(0));
-			student.setStudentName(tempList.get(1));
-			student.setDepartmentId(Integer.valueOf(tempList.get(3)));
-			student.setClassId(Integer.valueOf(tempList.get(4)));
-			student.setPassword(tempList.get(5));
-			students.add(student);
+			Long cou = Db.queryLong("select count(*) from student where studentId = ?",tempList.get(0));
+			if (cou != 1) {
+				student.setStudentId(tempList.get(0));
+				student.setStudentName(tempList.get(1));
+				student.setDepartmentId(Integer.valueOf(tempList.get(2)));
+				student.setClassId(Integer.valueOf(tempList.get(3)));
+				student.setPassword(tempList.get(4));
+				students.add(student);
+			}
 		}
-		Db.batchSave(students, list.size());
+		Db.batchSave(students, students.size());
+	}
+	
+	public void deleteFile(String filename){
+		String path = basePath + filename + ".xls";
+		File file = new File(path);
+		if (file.exists()) {
+			file.delete();
+		}
 	}
 }

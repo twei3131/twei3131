@@ -322,7 +322,7 @@
                                     </div>
                                 </div>
                                 <div class="panel-body">
-                                    <form>
+                                    <form action="/bacgrou/uploadFile" method="post" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label for="exampleInputFile">File input</label>
                                             <input type="file" id="exampleInputFile" name="upload">

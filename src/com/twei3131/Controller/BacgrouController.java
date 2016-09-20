@@ -1,6 +1,7 @@
 package com.twei3131.Controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +15,7 @@ import com.twei3131.common.model.Signerror;
 import com.twei3131.common.model.Student;
 import com.twei3131.common.model.Subject;
 import com.twei3131.common.model.Teacher;
+import com.twei3131.service.ResolveExcel;
 import com.twei3131.service.Users;
 
 public class BacgrouController extends Controller {
@@ -185,12 +187,15 @@ public class BacgrouController extends Controller {
 		renderFile(file);
 	}
 	
-	public void uploadFile(){
+	public void uploadFile() throws IOException{
 		UploadFile uploadFile = getFile("upload");
 		File file = uploadFile.getFile();
-		String filename = file.getName().split(".")[0];
+		String filename = file.getName().replace(".xls", "");
+		ResolveExcel excel = new ResolveExcel();
 		if (filename.equals("demo_Student")) {
-			
+			excel.savStu();
+			excel.deleteFile("demo_Student");
 		}
+		getMain();
 	}
 }
