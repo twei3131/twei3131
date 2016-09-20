@@ -23,6 +23,7 @@ public class Students {
 					studentState = "Õı³£ÏÂ¿Î";
 				}
 			}
+			System.out.println("1¡¢"+classState+",2¡¢"+studentState);
 		}
 
 		return studentState;
