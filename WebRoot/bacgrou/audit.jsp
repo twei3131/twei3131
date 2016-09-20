@@ -301,7 +301,7 @@
         <div id="page-wrapper" >
 		  <div class="header"> 
                         <h1 class="page-header">
-                             Form Elements <small>Best form elements.</small>
+                                                                                  学生考勤审核 <small>${singerror.studentId}</small>
                         </h1>
 						<ol class="breadcrumb">
 					  <li><a href="#">Home</a></li>
@@ -321,13 +321,9 @@
                                     </div>
                                 </div>
                                 <div class="panel-body">
-                                    <div class="sub-title">Input</div>
+                                    <div class="sub-title"></div>
                                     <div>
-                                        <input type="text" class="form-control" placeholder="Text input">
-                                    </div>
-                                    <div class="sub-title">Textarea</div>
-                                    <div>
-                                        <textarea class="form-control" rows="3"></textarea>
+                                        <input type="text" value="${signerror.}" class="form-control" placeholder="Text input">
                                     </div>
                                     <div class="sub-title">Select</div>
                                     <div>
