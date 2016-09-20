@@ -1,3 +1,4 @@
+<%@page import="com.twei3131.common.model.Signerror"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
@@ -338,7 +339,7 @@
                                                  <option value="早退">早退</option>
                                                  <option value="旷课">旷课</option>
                                                  <option value="正常下课">正常下课</option>
-                                                 <option value="迟到下课">迟到下课</option>
+                                                 <option value="迟到下课" selected="selected">迟到下课</option>
                                                  <option value="请假">请假</option>
                                                 <option value="迟到早退">迟到早退</option>
                                             </optgroup>
