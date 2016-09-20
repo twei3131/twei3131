@@ -11,6 +11,7 @@ import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
 
 import com.jfinal.kit.PathKit;
 import com.jfinal.plugin.activerecord.Db;
@@ -42,8 +43,12 @@ public class ResolveExcel {
 					if (cell == null) {
 						continue;
 					}
+					if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+						rowList.add(String.valueOf(cell.getNumericCellValue()));
+					}else{
+						rowList.add(cell.getStringCellValue());
+					}
 					//将数据存入数组中
-					rowList.add(cell.getStringCellValue());
 				}
 				restult.add(rowList);
 			}
@@ -73,35 +78,34 @@ public class ResolveExcel {
 	public void savCla() throws IOException{
 		List<List<String>> list = resExcel("demo_Classes");
 		List<Classes> classes = new ArrayList<Classes>();
-		List<Instructor> instructors = new ArrayList<Instructor>();
 		for(int i = 0;i < list.size();i++){
 			List<String> tempList = list.get(i);
 			
 			Classes claes = new Classes();
 			Instructor instructor = new Instructor();
 			
-			Long claCou = Db.queryLong("select count(*) from classes where classId = ?",tempList.get(0));
-			Long insCou = Db.queryLong("select count(*) from instructor where instructorId = ?",tempList.get(4));
+			Long claCou = Db.queryLong("select count(*) from classes where classId = ?",tempList.get(0).replace(".0", ""));
+			Long insCou = Db.queryLong("select count(*) from instructor where instructorId = ?",tempList.get(4).replace(".0", ""));
+			System.out.println(insCou);
 			if (claCou == 0) {
-				claes.setClassId(tempList.get(0));
+				claes.setClassId(tempList.get(0).replace(".0", ""));
 				claes.setName(tempList.get(1));
-				claes.setDepartmentId(tempList.get(2));
-				claes.setGradeId(Integer.valueOf(tempList.get(3)));
+				claes.setDepartmentId(tempList.get(2).replace(".0", ""));
+				claes.setGradeId(Integer.valueOf(tempList.get(3).replace(".0", "")));
 				claes.setInstructorId(tempList.get(4));
 				classes.add(claes);
 			}
-			
+			System.out.println("辅导员编号:"+tempList.get(4));
 			if (insCou == 0) {
 				instructor.setInstructorId(tempList.get(4));
 				instructor.setInstructorName(tempList.get(5));
 				instructor.setPhoneNumber(tempList.get(6));
-				instructor.setPhoneNumber("none");
-				instructors.add(instructor);
+				instructor.setPassword("none");
+				instructor.save();
 			}
 		}
 		
 		Db.batchSave(classes, classes.size());
-		Db.batchSave(instructors, instructors.size());
 	}
 	
 	public void deleteFile(String filename){
