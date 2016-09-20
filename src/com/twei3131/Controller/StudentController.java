@@ -38,6 +38,7 @@ public class StudentController extends Controller {
 				index();
 			}else{
 				setAttr("state", "х╥хооб©н");
+				setAttr("href", "/student/sk");
 				index();
 			}
 		}
@@ -69,10 +70,11 @@ public class StudentController extends Controller {
 		}
 		else if (isLegal && !isReScan) {
 			
-			Subjectinfo subjectinfo = Subjectinfo.dao.findFirst("select * from subjectInfo where teacherId = '" + teaId + "' and subjectId='"+subId + "'");
+			Subjectinfo subjectinfo = Subjectinfo.dao.findFirst("select * from subjectInfo where teacherId = '" + teaId + "' and subjectId='"+subId + "' ORDER BY subjectInfoId DESC");
 			Tempsign tempsign = Tempsign.dao.findById(stuId, teaId);
 	
 			tempsign.setState(students.getStuStateByClassState("stuFirst", subjectinfo.getState(), stuId, teaId));
+			
 			tempsign.setScanState("false");
 			tempsign.setHostname(getRequest().getRemoteHost());
 			flag = tempsign.update();
