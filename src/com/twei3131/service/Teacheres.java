@@ -1,5 +1,6 @@
 package com.twei3131.service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -45,6 +46,7 @@ public class Teacheres {
 	public long getSubjectTimes(String teacherId,String subjectId){
 		String sql = "SELECT COUNT(*) FROM subjectinfo WHERE teacherId = '"+teacherId+"' AND subjectId = '"+subjectId+"'";
 		long i = Db.queryLong(sql);
+		System.out.println(i);
 		return i;
 	}
 	
@@ -128,9 +130,10 @@ public class Teacheres {
 		return i>= 0;
 	}
 	
-	@SuppressWarnings("deprecation")
 	public void setSignError(String teacherId,String subjectId){
 		List<Tempsign> tempsign = Tempsign.dao.find("select * from tempsign where teacherId = ?",teacherId);
+		Date date = new Date();
+		System.out.println(tempsign.get(0).getTeacherId());
 		for(int i = 0;i < tempsign.size();i++){
 			Signerror signerror = new Signerror();
 			signerror.setStudentId(tempsign.get(i).getStudentId());
@@ -139,7 +142,7 @@ public class Teacheres {
 			signerror.setState(tempsign.get(i).getState());
 			signerror.setAuditState("Î´ÉóºË");
 			signerror.setTimes((int)getSubjectTimes(teacherId, subjectId));
-			signerror.setTime(new Date("yyyy-mm-dd hh:mm:ss").toString());
+			signerror.setTime(date.toString());
 			signerror.save();
 		}
 	}

@@ -1,6 +1,5 @@
 package com.twei3131.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.jfinal.plugin.activerecord.Db;
@@ -25,7 +24,7 @@ public class Students {
 				}
 			}
 		}
-
+		System.out.println(studentState);
 		return studentState;
 	}
 	
