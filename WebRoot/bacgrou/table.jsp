@@ -345,7 +345,7 @@
 	                                            <td>${list.time}</td>
 	                                            <td class="center">${list.state}</td>
 	                                            <td class="center">${list.auditState}</td>
-	                                            <td><a href="#" class="btn btn-primary center">审核</a><a href="/bacgrou/setAudit/${list.studentId}-${list.times}" class="btn btn-danger center">修改</a></td>
+	                                            <td><a href="javascript:void(0)" class="btn btn-primary center">审核</a><a href="/bacgrou/setAudit/${list.studentId}-${list.times}" class="btn btn-danger center">修改</a></td>
 	                                        </tr>
                                         </c:forEach>	
                                     </tbody>
