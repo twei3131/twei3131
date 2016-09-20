@@ -273,7 +273,7 @@
                                 <a href="/bacgrou/form.jsp">课程录入管理</a>
                             </li>
                             <li>
-                                <a href="/bacgrou/form.jsp">班级录入管理</a>
+                                <a href="/bacgrou/getDownPage/demo_Classes">班级/辅导员录入管理</a>
                             </li>
                             <li>
                                  <a href="/bacgrou/form.jsp">教师录入管理</a>
