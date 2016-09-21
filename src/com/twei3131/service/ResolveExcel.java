@@ -18,6 +18,7 @@ import com.jfinal.plugin.activerecord.Db;
 import com.twei3131.common.model.Classes;
 import com.twei3131.common.model.Instructor;
 import com.twei3131.common.model.Student;
+import com.twei3131.common.model.Teacher;
 
 public class ResolveExcel {
 	public final String basePath = PathKit.getWebRootPath()+File.separator+"twei3131Load"+File.separator;
@@ -106,6 +107,25 @@ public class ResolveExcel {
 		}
 		
 		Db.batchSave(classes, classes.size());
+	}
+	
+	public void savTea() throws IOException{
+		List<List<String>> list = resExcel("demo_Teacher");
+		List<Teacher> teacheres = new ArrayList<Teacher>();
+		for(int i = 0;i < list.size();i++){
+			List<String> tempList = list.get(i);
+			Teacher teacher = new Teacher();
+			Long cou = Db.queryLong("select count(*) from teacher where teacherId = ?",tempList.get(0));
+			if (cou != 1) {
+				teacher.setTeacherId(tempList.get(0));
+				teacher.setTeacherName(tempList.get(1));
+				teacher.setDepartmentId(tempList.get(2));
+				teacher.setPassword("none");
+				teacheres.add(teacher);
+			}
+		}
+		
+		Db.batchSave(teacheres, teacheres.size());
 	}
 	
 	public void deleteFile(String filename){

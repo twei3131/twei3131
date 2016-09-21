@@ -198,6 +198,9 @@ public class BacgrouController extends Controller {
 		}else if(filename.equals("demo_Classes")){
 			excel.savCla();
 			excel.deleteFile("demo_Classes");
+		}else if (filename.equals("demo_Teacher")) {
+			excel.savTea();
+			excel.deleteFile("demo_Teacher");
 		}
 		getMain();
 	}
