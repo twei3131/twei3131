@@ -119,7 +119,7 @@ public class ResolveExcel {
 			if (cou != 1) {
 				teacher.setTeacherId(tempList.get(0));
 				teacher.setTeacherName(tempList.get(1));
-				teacher.setDepartmentId(tempList.get(2));
+				teacher.setDepartmentId(tempList.get(2).replace(".0", ""));
 				teacher.setPassword("none");
 				teacheres.add(teacher);
 			}
