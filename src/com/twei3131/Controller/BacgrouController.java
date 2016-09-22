@@ -210,4 +210,9 @@ public class BacgrouController extends Controller {
 		}
 		getMain();
 	}
+	
+	public void cursor(){
+		getMain();
+		render("/bacgrou/course.jsp");
+	}
 }
