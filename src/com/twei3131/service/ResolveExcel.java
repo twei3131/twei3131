@@ -166,19 +166,19 @@ public class ResolveExcel {
 			List<String> tempList = list.get(i);
 			Group group = new Group();
 			Grouptosubject grouptosubject = new Grouptosubject();
+
+			BigDecimal bigDecimal = new BigDecimal(tempList.get(1));
 			
-			BigDecimal bigDecimal = new BigDecimal(tempList.get(0));
-			
-			Long gpCou = Db.queryLong("select count(*) from group where groupId ='"+tempList.get(0)+"' and studentId='"+bigDecimal.toPlainString()+"'");
-			Long gptCou = Db.queryLong("select count(*) from grouptosubject where groupId = '"+tempList.get(0)+"' and subjectId ='"+tempList.get(5));
+			Long gpCou = Db.queryLong("select count(*) from `group` where groupId ='"+tempList.get(0)+"' and studentId='"+bigDecimal.toPlainString()+"'");
+			Long gptCou = Db.queryLong("select count(*) from grouptosubject where groupId = '"+tempList.get(0)+"' and subjectId ='"+tempList.get(5)+"'");
 			
 			if (gpCou == 0) {
-				Long sumCou = Db.queryLong("select count(*) from group");
+				Long sumCou = Db.queryLong("select count(*) from `group`");
 				sumCou++;
 				
 				group.setId(sumCou.intValue());
-				group.setGroupId(bigDecimal.toPlainString());
-				group.setStudentId(tempList.get(1));
+				group.setGroupId(tempList.get(0));
+				group.setStudentId(bigDecimal.toPlainString());
 				group.setTeacherId(tempList.get(2));
 				group.setGroupName(tempList.get(3));
 				group.setClassId("");
@@ -187,7 +187,7 @@ public class ResolveExcel {
 			}
 			
 			if (gptCou == 0) {
-				grouptosubject.setGroupId(bigDecimal.toPlainString());
+				grouptosubject.setGroupId(tempList.get(0));
 				grouptosubject.setSubjectId(tempList.get(5));
 				
 				grouptosubject.save();
