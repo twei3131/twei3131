@@ -17,6 +17,7 @@ import com.twei3131.Controller.StudentController;
 import com.twei3131.Controller.TeacherController;
 import com.twei3131.Controller.TestController;
 import com.twei3131.Controller.UserController;
+import com.twei3131.Controller.extInfaceController;
 import com.twei3131.Interceptor.GobalInterceptor;
 import com.twei3131.common.model._MappingKit;
 import com.twei3131.handler.ContextPathHandler;
@@ -42,6 +43,7 @@ public class MainConfig extends JFinalConfig {
 		me.add("/teacher",TeacherController.class);
 		me.add("/student",StudentController.class);
 		me.add("/bacgrou",BacgrouController.class);
+		me.add("/ext",extInfaceController.class);
 	}
 
 	@Override
