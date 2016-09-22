@@ -80,7 +80,7 @@ public class StudentController extends Controller {
 			flag = tempsign.update();
 			
 			if (flag == true) {
-				renderJavascript("<script>alert(1)</script>");
+				renderHtml("<script>alert('²Ù×÷³É¹¦')</script>");
 			}else{
 				renderError(500);
 			}
