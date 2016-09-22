@@ -318,7 +318,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <div class="card-title">
-                                        <div class="title">Horizontal form</div>
+                                        <div class="title">课表录入</div>
                                     </div>
                                 </div>
                                 <div class="panel-body">
@@ -332,7 +332,7 @@
                                         <div class="form-group">
                                             <label for="inputPassword3" class="col-sm-2 control-label">时间</label>
                                             <div class="col-sm-10">
-                                                <input type="text" name="timeId" class="form-control" id="inputPassword3" placeholder="时间">
+                                                <input type="text" name="timesId" class="form-control" id="inputPassword3" placeholder="时间">
                                             </div>
                                         </div>
                                         <div class="form-group">

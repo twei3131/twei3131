@@ -220,12 +220,12 @@ public class BacgrouController extends Controller {
 	
 	public void cusSav(){
 		String subjectId = getPara("subId");
-		String timeId = getPara("timeId");
+		String timesId = getPara("timesId");
 		Subjecttotimes subjecttotimes = new Subjecttotimes();
-		Long i = Db.queryLong("select count(*) from subjecttotimes where subjectId = '"+subjectId+"' and timeId = '"+timeId+"'");
+		Long i = Db.queryLong("select count(*) from subjecttotimes where subjectId = '"+subjectId+"' and timesId = '"+timesId+"'");
 		if (i == 0) {
 			subjecttotimes.setSubjectId(subjectId);
-			subjecttotimes.setTimesId(timeId);
+			subjecttotimes.setTimesId(timesId);
 			subjecttotimes.save();
 		}
 		getMain();
