@@ -170,11 +170,24 @@ public class ResolveExcel {
 			Long gptCou = Db.queryLong("select count(*) from grouptosubject where groupId = '"+tempList.get(0)+"' and subjectId ='"+tempList.get(5));
 			
 			if (gpCou == 0) {
+				Long sumCou = Db.queryLong("select count(*) from group");
+				sumCou++;
 				
+				group.setId(sumCou.intValue());
+				group.setGroupId(tempList.get(0));
+				group.setStudentId(tempList.get(1));
+				group.setTeacherId(tempList.get(2));
+				group.setGroupName(tempList.get(3));
+				group.setClassId("");
+				
+				group.save();
 			}
 			
 			if (gptCou == 0) {
+				grouptosubject.setGroupId(tempList.get(0));
+				grouptosubject.setSubjectId(tempList.get(5));
 				
+				grouptosubject.save();
 			}
 		}
 	}
