@@ -9,11 +9,13 @@ import java.util.Map;
 import com.jfinal.core.Controller;
 import com.jfinal.kit.JsonKit;
 import com.jfinal.kit.PathKit;
+import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.upload.UploadFile;
 import com.twei3131.common.model.Classes;
 import com.twei3131.common.model.Signerror;
 import com.twei3131.common.model.Student;
 import com.twei3131.common.model.Subject;
+import com.twei3131.common.model.Subjecttotimes;
 import com.twei3131.common.model.Teacher;
 import com.twei3131.service.ResolveExcel;
 import com.twei3131.service.Users;
@@ -214,5 +216,19 @@ public class BacgrouController extends Controller {
 	public void cursor(){
 		getMain();
 		render("/bacgrou/course.jsp");
+	}
+	
+	public void cusSav(){
+		String subjectId = getPara("subId");
+		String timeId = getPara("timeId");
+		Subjecttotimes subjecttotimes = new Subjecttotimes();
+		Long i = Db.queryLong("select count(*) from subjecttotimes where subjectId = '"+subjectId+"' and timeId = '"+timeId+"'");
+		if (i == 0) {
+			subjecttotimes.setSubjectId(subjectId);
+			subjecttotimes.setTimesId(timeId);
+			subjecttotimes.save();
+		}
+		getMain();
+		render("/bacgrou/main.jsp");
 	}
 }

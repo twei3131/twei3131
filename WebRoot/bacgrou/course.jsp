@@ -322,17 +322,17 @@
                                     </div>
                                 </div>
                                 <div class="panel-body">
-                                    <form class="form-horizontal" method="post" action="">
+                                    <form class="form-horizontal" method="post" action="/bacgrou/cusSav">
                                         <div class="form-group">
                                             <label for="inputEmail3" class="col-sm-2 control-label">课程号</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputEmail3" placeholder="课程号">
+                                                <input type="text" name="subId" class="form-control" id="inputEmail3" placeholder="课程号">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="inputPassword3" class="col-sm-2 control-label">时间</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputPassword3" placeholder="时间">
+                                                <input type="text" name="timeId" class="form-control" id="inputPassword3" placeholder="时间">
                                             </div>
                                         </div>
                                         <div class="form-group">
