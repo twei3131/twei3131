@@ -282,7 +282,7 @@
                                  <a href="/bacgrou//getDownPage/demo_TGroup">选修课/体育课录入管理</a>
                             </li>
                             <li>
-                                <a href="/bacgrou/form.jsp">课表管理</a>
+                                <a href="/bacgrou/cursor">课表管理</a>
                             </li>
                              <li>
                                 <a href="/bacgrou/form.jsp">虚拟班级管理</a>
