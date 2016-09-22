@@ -16,6 +16,8 @@ import org.apache.poi.ss.usermodel.Cell;
 import com.jfinal.kit.PathKit;
 import com.jfinal.plugin.activerecord.Db;
 import com.twei3131.common.model.Classes;
+import com.twei3131.common.model.Group;
+import com.twei3131.common.model.Grouptosubject;
 import com.twei3131.common.model.Instructor;
 import com.twei3131.common.model.Student;
 import com.twei3131.common.model.Subject;
@@ -153,6 +155,26 @@ public class ResolveExcel {
 				subjecttoteacher.setSubjectId(tempList.get(0));
 				subjecttoteacher.setTeacherId(tempList.get(4));
 				subjecttoteacher.save();
+			}
+		}
+	}
+	
+	public void savGp() throws IOException{
+		List<List<String>> list = resExcel("demo_Group");
+		for(int i = 0;i < list.size();i++){
+			List<String> tempList = list.get(i);
+			Group group = new Group();
+			Grouptosubject grouptosubject = new Grouptosubject();
+			
+			Long gpCou = Db.queryLong("select count(*) from group where groupId ='"+tempList.get(0)+"' and studentId='"+tempList.get(1)+"'");
+			Long gptCou = Db.queryLong("select count(*) from grouptosubject where groupId = '"+tempList.get(0)+"' and subjectId ='"+tempList.get(5));
+			
+			if (gpCou == 0) {
+				
+			}
+			
+			if (gptCou == 0) {
+				
 			}
 		}
 	}
