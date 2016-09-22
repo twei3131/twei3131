@@ -302,7 +302,7 @@
         <div id="page-wrapper" >
 		  <div class="header"> 
                         <h1 class="page-header">
-                             Form Elements <small>Best form elements.</small>
+                        	    课表管理 <small>Best form elements.</small>
                         </h1>
 						<ol class="breadcrumb">
 					  <li><a href="#">Home</a></li>
@@ -322,33 +322,25 @@
                                     </div>
                                 </div>
                                 <div class="panel-body">
-                                    <form class="form-horizontal">
+                                    <form class="form-horizontal" method="post" action="">
                                         <div class="form-group">
-                                            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                                            <label for="inputEmail3" class="col-sm-2 control-label">课程号</label>
                                             <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                                <input type="text" class="form-control" id="inputEmail3" placeholder="课程号">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                                            <label for="inputPassword3" class="col-sm-2 control-label">时间</label>
                                             <div class="col-sm-10">
-                                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                                <input type="text" class="form-control" id="inputPassword3" placeholder="时间">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="col-sm-offset-2 col-sm-10">
-                                              <div class="checkbox3 checkbox-round checkbox-check checkbox-light">
-                                                <input type="checkbox" id="checkbox-10">
-                                                <label for="checkbox-10">
-                                                  Remember me
-                                                </label>
-                                              </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-2 col-sm-10">
-                                                <button type="submit" class="btn btn-default">Sign in</button>
-                                            </div>
+                                            <center>
+	                                            <div class="col-sm-offset-2 col-sm-10">
+	                                                <button type="submit" class="btn btn-default">提交</button>
+	                                            </div>
+                                            </center>
                                         </div>
                                     </form>
                                 </div>
