@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -166,7 +167,9 @@ public class ResolveExcel {
 			Group group = new Group();
 			Grouptosubject grouptosubject = new Grouptosubject();
 			
-			Long gpCou = Db.queryLong("select count(*) from group where groupId ='"+tempList.get(0)+"' and studentId='"+tempList.get(1)+"'");
+			BigDecimal bigDecimal = new BigDecimal(tempList.get(0));
+			
+			Long gpCou = Db.queryLong("select count(*) from group where groupId ='"+tempList.get(0)+"' and studentId='"+bigDecimal.toPlainString()+"'");
 			Long gptCou = Db.queryLong("select count(*) from grouptosubject where groupId = '"+tempList.get(0)+"' and subjectId ='"+tempList.get(5));
 			
 			if (gpCou == 0) {
@@ -174,7 +177,7 @@ public class ResolveExcel {
 				sumCou++;
 				
 				group.setId(sumCou.intValue());
-				group.setGroupId(tempList.get(0));
+				group.setGroupId(bigDecimal.toPlainString());
 				group.setStudentId(tempList.get(1));
 				group.setTeacherId(tempList.get(2));
 				group.setGroupName(tempList.get(3));
@@ -184,7 +187,7 @@ public class ResolveExcel {
 			}
 			
 			if (gptCou == 0) {
-				grouptosubject.setGroupId(tempList.get(0));
+				grouptosubject.setGroupId(bigDecimal.toPlainString());
 				grouptosubject.setSubjectId(tempList.get(5));
 				
 				grouptosubject.save();
