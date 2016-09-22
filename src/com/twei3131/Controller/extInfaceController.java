@@ -10,6 +10,11 @@ import com.twei3131.common.model.Signerror;
 import com.twei3131.common.model.Student;
 
 public class extInfaceController extends Controller {
+	
+	public void index(){
+		getInfo();
+	}
+	
 	public void getInfo(){
 		String stuId = getPara("sid");
 		Map<String, Object> map = new HashMap<String,Object>();
