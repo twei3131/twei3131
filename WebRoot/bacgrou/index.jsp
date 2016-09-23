@@ -5,9 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>登录界面</title>
-<script type="text/javascript" src="/bacgrou/js/jquery-1.9.0.min.js"></script>
-<script type="text/javascript" src="/bacgrou/images/login.js"></script>
-<link href="/bacgrou/css/login2.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${CONTEXT_PATH}/bacgrou/js/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="${CONTEXT_PATH}/bacgrou/images/login.js"></script>
+<link href="${CONTEXT_PATH}/bacgrou/css/login2.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<h1>后台登录</h1>
@@ -31,7 +31,7 @@
     
             
 			<div class="login_form">
-				<form action="/bacgrou/login" accept-charset="utf-8" id="login_form" class="loginForm" method="post"><input type="hidden" name="did" value="0"/>
+				<form action="${CONTEXT_PATH}/bacgrou/login" accept-charset="utf-8" id="login_form" class="loginForm" method="post"><input type="hidden" name="did" value="0"/>
                <input type="hidden" name="to" value="log"/>
                 <div class="uinArea" id="uinArea">
                 <label class="input-tips" for="u">帐号：</label>

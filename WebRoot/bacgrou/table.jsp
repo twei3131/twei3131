@@ -7,17 +7,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <!-- Bootstrap Styles-->
-    <link href="/bacgrou/assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="${CONTEXT_PATH}/bacgrou/assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FontAwesome Styles-->
-    <link href="/bacgrou/assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="${CONTEXT_PATH}/bacgrou/assets/css/font-awesome.css" rel="stylesheet" />
      <!-- Morris Chart Styles-->
    
         <!-- Custom Styles-->
-    <link href="/bacgrou/assets/css/custom-styles.css" rel="stylesheet" />
+    <link href="${CONTEXT_PATH}/bacgrou/assets/css/custom-styles.css" rel="stylesheet" />
      <!-- Google Fonts-->
 <!--    <link href='http://fonts.useso.com/css?family=Open+Sans' rel='stylesheet' type='text/css' /> -->
      <!-- TABLE STYLES-->
-    <link href="/bacgrou/assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="${CONTEXT_PATH}/bacgrou/assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
     <style type="text/css">
     	a{
     		text-decoration:none;
@@ -256,14 +256,14 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu" href="/bacgrou/getMain"><i class="fa fa-dashboard"></i> 主页</a>
+                        <a class="active-menu" href="${CONTEXT_PATH}/bacgrou/getMain"><i class="fa fa-dashboard"></i> 主页</a>
                     </li>
                      <li>
                         <a href="#"><i class="fa fa-sitemap"></i> 班级考核查询<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                         <c:forEach items="${classes}" var="list">
                             <li>
-                                <a href="/bacgrou/audit?instructorId=${userId}&classId=${list.classId}">${list.name}</a>
+                                <a href="${CONTEXT_PATH}/bacgrou/audit?instructorId=${userId}&classId=${list.classId}">${list.name}</a>
                             </li>
                         </c:forEach> 
 						</ul>
@@ -273,31 +273,31 @@
                         <a href="#"><i class="fa fa-sitemap"></i> 录入管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/bacgrou/getDownPage/demo_Student">学生录入管理</a>
+                                <a href="${CONTEXT_PATH}/bacgrou/getDownPage/demo_Student">学生录入管理</a>
                             </li>
                             <li>
-                                <a href="/bacgrou/getDownPage/demo_Subject">课程录入管理</a>
+                                <a href="${CONTEXT_PATH}/bacgrou/getDownPage/demo_Subject">课程录入管理</a>
                             </li>
                             <li>
-                                <a href="/bacgrou/getDownPage/demo_Classes">班级/辅导员录入管理</a>
+                                <a href="${CONTEXT_PATH}/bacgrou/getDownPage/demo_Classes">班级/辅导员录入管理</a>
                             </li>
                             <li>
-                                 <a href="/bacgrou/getDownPage/demo_Teacher">教师录入管理</a>
+                                 <a href="${CONTEXT_PATH}/bacgrou/getDownPage/demo_Teacher">教师录入管理</a>
                             </li>
                             <li>
-                                 <a href="/bacgrou/getDownPage/demo_Group">选修课/体育课录入管理</a>
+                                 <a href="${CONTEXT_PATH}/bacgrou/getDownPage/demo_Group">选修课/体育课录入管理</a>
                             </li>
                             <li>
-                                <a href="/bacgrou/cursor">课表管理</a>
+                                <a href="${CONTEXT_PATH}/bacgrou/cursor">课表管理</a>
                             </li>
                              <li>
-                                <a href="/bacgrou/form.jsp">虚拟班级管理</a>
+                                <a href="${CONTEXT_PATH}/bacgrou/form.jsp">虚拟班级管理</a>
                             </li>
 							</ul>
 						</li>	
                     
                     <li>
-                        <a href="/bacgrou/table.jsp"><i class="fa fa-table"></i> 学生签到情况审核管理</a>
+                        <a href="${CONTEXT_PATH}/bacgrou/table.jsp"><i class="fa fa-table"></i> 学生签到情况审核管理</a>
                     </li>
                   
                 </ul>
@@ -345,7 +345,7 @@
 	                                            <td>${list.time}</td>
 	                                            <td class="center">${list.state}</td>
 	                                            <td class="center">${list.auditState}</td>
-	                                            <td><a href="javascript:changeAudite(${list.studentId},${list.times})" class="btn btn-primary center">审核</a><a href="/bacgrou/setAudit/${list.studentId}-${list.times}" class="btn btn-danger center">修改</a></td>
+	                                            <td><a onclick="changeAudite(${list.studentId},${list.times})" class="btn btn-primary center">审核</a><a href="${CONTEXT_PATH}/bacgrou/setAudit/${list.studentId}-${list.times}" class="btn btn-danger center">修改</a></td>
 	                                        </tr>
                                         </c:forEach>	
                                     </tbody>
@@ -370,38 +370,40 @@
      <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
-    <script src="/bacgrou/assets/js/jquery-1.10.2.js"></script>
+    <script src="${CONTEXT_PATH}/bacgrou/assets/js/jquery-1.10.2.js"></script>
       <!-- Bootstrap Js -->
-    <script src="/bacgrou/assets/js/bootstrap.min.js"></script>
+    <script src="${CONTEXT_PATH}/bacgrou/assets/js/bootstrap.min.js"></script>
     <!-- Metis Menu Js -->
-    <script src="assets/js/jquery.metisMenu.js"></script>
+    <script src="${CONTEXT_PATH}/assets/js/jquery.metisMenu.js"></script>
      <!-- DATA TABLE SCRIPTS -->
-    <script src="/bacgrou/assets/js/dataTables/jquery.dataTables.js"></script>
-    <script src="/bacgrou/assets/js/dataTables/dataTables.bootstrap.js"></script>
+    <script src="${CONTEXT_PATH}/bacgrou/assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="${CONTEXT_PATH}/bacgrou/assets/js/dataTables/dataTables.bootstrap.js"></script>
         <script>
+        	var basehref = '${CONTEXT_PATH}';
+
             $(document).ready(function () {
                 $('#dataTables-example').dataTable();
             });
             function getStuInfo(stuId){
-            	$.get("/bacgrou/getStuInfo",{"username":stuId},function(data){
+            	$.get(basehref+"/bacgrou/getStuInfo",{"username":stuId},function(data){
             		var content = "学号:"+data.uid+";姓名:"+data.uname;
             		alert(content);
             	});
             }
             function getTeaInfos(teaId){
-            	$.get("/bacgrou/getTeaInfo",{"tId":teaId},function(data){
+            	$.get(basehref+"/bacgrou/getTeaInfo",{"tId":teaId},function(data){
             		var content = "教师编号:"+data.tid+";教师姓名:"+data.tname;
             		alert(content);
             	});
             }
             function getSubInfo(subjectId){
-            	$.get("/bacgrou/getSubInfo",{"subId":subjectId},function(data){
+            	$.get(basehref+"/bacgrou/getSubInfo",{"subId":subjectId},function(data){
             		var content = "课程编号:"+data.subId+";课程名:"+data.subName;
             		alert(content);
             	});
             }
             function changeAudite(uId,times){
-            	$.get("/bacgrou/changeAuditState",{"userId":uId,"times":times},function(data){
+            	$.get(basehref+"/bacgrou/changeAuditState",{"userId":uId,"times":times},function(data){
             		var content = data.status;
             		var alte = "";
             		if(content == 200){
@@ -414,6 +416,6 @@
             }
     </script>
          <!-- Custom Js -->
-    <script src="/bacgrou/assets/js/custom-scripts.js"></script>
+    <script src="${CONTEXT_PATH}/bacgrou/assets/js/custom-scripts.js"></script>
 </body>
 </html>

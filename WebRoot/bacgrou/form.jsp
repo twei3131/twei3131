@@ -6,14 +6,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <!-- Bootstrap Styles-->
-    <link href="/bacgrou/assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="${CONTEXT_PATH}/bacgrou/assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FontAwesome Styles-->
-    <link href="/bacgrou/assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="${CONTEXT_PATH}/bacgrou/assets/css/font-awesome.css" rel="stylesheet" />
 	
-    <link href="/bacgrou/assets/css/select2.min.css" rel="stylesheet" >
-	<link href="/bacgrou/assets/css/checkbox3.min.css" rel="stylesheet" >
+    <link href="${CONTEXT_PATH}/bacgrou/assets/css/select2.min.css" rel="stylesheet" >
+	<link href="${CONTEXT_PATH}/bacgrou/assets/css/checkbox3.min.css" rel="stylesheet" >
         <!-- Custom Styles-->
-    <link href="/bacgrou/assets/css/custom-styles.css" rel="stylesheet" />
+    <link href="${CONTEXT_PATH}/bacgrou/assets/css/custom-styles.css" rel="stylesheet" />
      <!-- Google Fonts-->
 <!--    <link href='http://fonts.useso.com/css?family=Open+Sans' rel='stylesheet' type='text/css' /> -->
 </head>

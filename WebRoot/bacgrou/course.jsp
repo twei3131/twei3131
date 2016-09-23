@@ -7,14 +7,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <!-- Bootstrap Styles-->
-    <link href="/bacgrou/assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="${CONTEXT_PATH}/bacgrou/assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FontAwesome Styles-->
-    <link href="/bacgrou/assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="${CONTEXT_PATH}/bacgrou/assets/css/font-awesome.css" rel="stylesheet" />
 	
-    <link href="/bacgrou/assets/css/select2.min.css" rel="stylesheet" >
-	<link href="/bacgrou/assets/css/checkbox3.min.css" rel="stylesheet" >
+    <link href="${CONTEXT_PATH}/bacgrou/assets/css/select2.min.css" rel="stylesheet" >
+	<link href="${CONTEXT_PATH}/bacgrou/assets/css/checkbox3.min.css" rel="stylesheet" >
         <!-- Custom Styles-->
-    <link href="/bacgrou/assets/css/custom-styles.css" rel="stylesheet" />
+    <link href="${CONTEXT_PATH}/bacgrou/assets/css/custom-styles.css" rel="stylesheet" />
      <!-- Google Fonts-->
 <!--    <link href='http://fonts.useso.com/css?family=Open+Sans' rel='stylesheet' type='text/css' /> -->
 </head>
@@ -249,14 +249,14 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu" href="/bacgrou/getMain"><i class="fa fa-dashboard"></i> 主页</a>
+                        <a class="active-menu" href="${CONTEXT_PATH}/bacgrou/getMain"><i class="fa fa-dashboard"></i> 主页</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-sitemap"></i> 班级考核查询<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                         <c:forEach items="${classes}" var="list">
                             <li>
-                                <a href="/bacgrou/audit?instructorId=${userId}&classId=${list.classId}">${list.name}</a>
+                                <a href="${CONTEXT_PATH}/bacgrou/audit?instructorId=${userId}&classId=${list.classId}">${list.name}</a>
                             </li>
                         </c:forEach> 
 						</ul>
@@ -266,31 +266,31 @@
                         <a href="#"><i class="fa fa-sitemap"></i> 录入管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                              <li>
-                                <a href="/bacgrou/getDownPage/demo_Student">学生录入管理</a>
+                                <a href="${CONTEXT_PATH}/bacgrou/getDownPage/demo_Student">学生录入管理</a>
                             </li>
                             <li>
-                                <a href="/bacgrou/getDownPage/demo_Subject">课程录入管理</a>
+                                <a href="${CONTEXT_PATH}/bacgrou/getDownPage/demo_Subject">课程录入管理</a>
                             </li>
                             <li>
-                                <a href="/bacgrou/getDownPage/demo_Classes">班级/辅导员录入管理</a>
+                                <a href="${CONTEXT_PATH}/bacgrou/getDownPage/demo_Classes">班级/辅导员录入管理</a>
                             </li>
                             <li>
-                                 <a href="/bacgrou/getDownPage/demo_Teacher">教师录入管理</a>
+                                 <a href="${CONTEXT_PATH}/bacgrou/getDownPage/demo_Teacher">教师录入管理</a>
                             </li>
                             <li>
-                                 <a href="/bacgrou/getDownPage/demo_Group">选修课/体育课录入管理</a>
+                                 <a href="${CONTEXT_PATH}/bacgrou/getDownPage/demo_Group">选修课/体育课录入管理</a>
                             </li>
                             <li>
-                                <a href="/bacgrou/cursor">课表管理</a>
+                                <a href="${CONTEXT_PATH}/bacgrou/cursor">课表管理</a>
                             </li>
                              <li>
-                                <a href="/bacgrou/form.jsp">虚拟班级管理</a>
+                                <a href="${CONTEXT_PATH}/bacgrou/form.jsp">虚拟班级管理</a>
                             </li>
 							</ul>
 						</li>	
                     
                     <li>
-                        <a href="/bacgrou/table.jsp"><i class="fa fa-table"></i> 学生签到情况审核管理</a>
+                        <a href="${CONTEXT_PATH}/bacgrou/table.jsp"><i class="fa fa-table"></i> 学生签到情况审核管理</a>
                     </li>
                   
                 </ul>
@@ -322,7 +322,7 @@
                                     </div>
                                 </div>
                                 <div class="panel-body">
-                                    <form class="form-horizontal" method="post" action="/bacgrou/cusSav">
+                                    <form class="form-horizontal" method="post" action="${CONTEXT_PATH}/bacgrou/cusSav">
                                         <div class="form-group">
                                             <label for="inputEmail3" class="col-sm-2 control-label">课程号</label>
                                             <div class="col-sm-10">
@@ -357,20 +357,20 @@
      <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
-    <script src="/bacgrou/assets/js/jquery-1.10.2.js"></script>
+    <script src="${CONTEXT_PATH}/bacgrou/assets/js/jquery-1.10.2.js"></script>
       <!-- Bootstrap Js -->
-    <script src="/bacgrou/assets/js/bootstrap.min.js"></script>
+    <script src="${CONTEXT_PATH}/bacgrou/assets/js/bootstrap.min.js"></script>
     <!-- Metis Menu Js -->
-    <script src="/bacgrou/assets/js/jquery.metisMenu.js"></script>
-	<script src="/bacgrou/assets/js/select2.full.min.js"></script>
+    <script src="${CONTEXT_PATH}/bacgrou/assets/js/jquery.metisMenu.js"></script>
+	<script src="${CONTEXT_PATH}/bacgrou/assets/js/select2.full.min.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function() {
 	  $(".selectbox").select2();
 	});
 	</script>
       <!-- Custom Js -->
-    <script src="/bacgrou/assets/js/custom-scripts.js"></script> 
-	<script src="/bacgrou/assets/js/morris/raphael-2.1.0.min.js"></script>
-    <script src="/bacgrou/assets/js/morris/morris.js"></script>
+    <script src="${CONTEXT_PATH}/bacgrou/assets/js/custom-scripts.js"></script> 
+	<script src="${CONTEXT_PATH}/bacgrou/assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="${CONTEXT_PATH}/bacgrou/assets/js/morris/morris.js"></script>
 </body>
 </html>
